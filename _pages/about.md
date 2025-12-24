@@ -23,3 +23,6 @@ I am a PhD researcher in the Department of Chemistry at IIT Delhi, where my work
 <div style="border: 1px solid #ccc; padding: 20px; text-align: center; border-radius: 8px;">
   <p>To see my recent highlights, please visit my <a href="https://www.linkedin.com/in/nikhilsingh002">LinkedIn profile</a>.</p>
 </div>
+
+<br>
+<a href="http://s01.flagcounter.com/more/hj9"><img src="https://s01.flagcounter.com/count2/hj9/bg_FFFFFF/txt_000000/border_CCCCCC/columns_5/maxflags_20/viewers_0/labels_0/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
