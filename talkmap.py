@@ -27,8 +27,12 @@ title = ""
 # Perform geolocation
 for file in g:
     # Read the file
-    data = frontmatter.load(file)
-    data = data.to_dict()
+    try:
+        data = frontmatter.load(file)
+        data = data.to_dict()
+    except Exception as e:
+        print(f"Error loading {file}: {e}")
+        continue
 
     # Press on if the location is not present
     if 'location' not in data:
