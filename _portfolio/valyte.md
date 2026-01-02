@@ -1,13 +1,13 @@
 ---
 title: "Valyte"
-excerpt: "Valyte: A Python-based automated workflow for extracting and analyzing core-level binding energy shifts from VASP-XPS simulations. [Link](https://github.com/nikyadav002/Valyte-Project)"
+excerpt: "Valyte is a comprehensive CLI tool for VASP workflows, providing both pre-processing and post-processing capabilities with a focus on clean, publication-quality outputs and modern aesthetics. [Link](https://github.com/nikyadav002/Valyte-Project)"
 collection: portfolio
 header:
   teaser: /images/valyte_logo.png
 ---
 
-Valyte is a specialized tool designed to streamline the analysis of core-level binding energy shifts using VASP. It automates the extraction and processing of data, providing researchers with an efficient way to interpret XPS simulations.
+Valyte is a comprehensive CLI tool for VASP workflows, providing both pre-processing and post-processing capabilities with a focus on clean, publication-quality outputs and modern aesthetics.
 
-![Valyte Logo](/images/valyte_logo.png)
+<img src="/images/valyte_logo.png" alt="Valyte Logo" width="300">
 
 Check out the project on GitHub: [Valyte-Project](https://github.com/nikyadav002/Valyte-Project)

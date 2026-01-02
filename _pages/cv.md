@@ -31,22 +31,6 @@ Research Experience
   * Supervisor: Dr. Rakesh Kumar Sharma
   * Title: “Chiral Calix[4]arene appended organocatalysts for asymmetric Strecker Reaction”
 
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
+
   
 
