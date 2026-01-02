@@ -13,16 +13,8 @@ I am a PhD researcher in the Department of Chemistry at IIT Delhi, where my work
 
 [My LinkedIn Profile](https://www.linkedin.com/in/nikhilsingh002)
 
-<!-- To embed a LinkedIn post:
-1. Go to the post on LinkedIn.
-2. Click the three dots (...) and select "Embed this post".
-3. Copy the "Code" (it starts with <iframe...).
-4. Paste it below.
--->
-
-<div style="border: 1px solid #ccc; padding: 20px; text-align: center; border-radius: 8px;">
-  <p>To see my recent highlights, please visit my <a href="https://www.linkedin.com/in/nikhilsingh002">LinkedIn profile</a>.</p>
-</div>
+<!-- REPLACE THE SRC URL BELOW WITH YOUR SPECIFIC POST URL -->
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7371907936203284480" height="858" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
 
 <br>
 <a href="http://s01.flagcounter.com/more/hj9"><img src="https://s01.flagcounter.com/count2/hj9/bg_FFFFFF/txt_000000/border_CCCCCC/columns_5/maxflags_20/viewers_0/labels_0/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a>

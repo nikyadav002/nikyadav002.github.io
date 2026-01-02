@@ -9,37 +9,27 @@ redirect_from:
 
 {% include base_path %}
 
+Professional Summary
+======
+Motivated research student with expertise in computational chemistry and materials science, mainly focusing on theoretical and computational chemistry, molecular modelling, molecular dynamics, and machine learning applications to address real-world challenges.
+
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* **PhD Chemistry**, Indian Institute of Technology, Delhi (2023 - till)
+* **MSc Chemistry**, Indian Institute of Technology, Jodhpur (2021 - 2023)
+* **BSc Non-Medical**, Kishan Lal Public College, Indira Gandhi University, Haryana (2018 - 2021)
 
-Work experience
+Research Experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* **PhD Thesis** (2023 – till)
+  * *Indian Institute of Technology, Delhi*
+  * Supervisor: Dr. Dibyajyoti Ghosh
+  * Title: “Computational Materials Designing for Energy Applications”
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* **Master’s Thesis** (July 2022 – May 2023)
+  * *Indian Institute of Technology, Jodhpur*
+  * Supervisor: Dr. Rakesh Kumar Sharma
+  * Title: “Chiral Calix[4]arene appended organocatalysts for asymmetric Strecker Reaction”
 
 Publications
 ======
@@ -59,6 +49,4 @@ Teaching
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
   
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+
