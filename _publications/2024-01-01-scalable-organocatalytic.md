@@ -3,7 +3,7 @@ title: "Scalable organocatalytic one pot asymmetric Strecker reaction via campho
 collection: publications
 category: coauthor
 permalink: /publication/scalable-organocatalytic
-excerpt: 'A Malik, K Antil, N Singh, PR Sharma, RK Sharma'
+excerpt: 'A Malik, K Antil, **N Singh**, PR Sharma, RK Sharma'
 date: 2024-01-01
 venue: 'Chemical Communications, 60(65), 8561-8564'
 ---
