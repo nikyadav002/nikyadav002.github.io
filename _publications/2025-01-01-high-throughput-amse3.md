@@ -6,4 +6,6 @@ permalink: /publication/high-throughput-amse3
 excerpt: '**N Singh**, K Samanta, SK Maharana, K Pal, S Tretiak, A Talapatra, D Ghosh'
 date: 2025-01-01
 venue: 'Journal of Materials Chemistry A, 13(13), 9192-9210'
+link: https://pubs.rsc.org/en/content/articlehtml/2008/jb/d4ta08867k
+paperurl: https://pubs.rsc.org/en/content/articlehtml/2008/jb/d4ta08867k
 ---
