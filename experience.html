@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nikhil Singh | Teaching</title>
+    <link rel="stylesheet" href="./assets/css/creative.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        .teaching-section {
+            margin-bottom: 60px;
+        }
+
+        .teaching-header {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--primary);
+            padding-left: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .teaching-header i {
+            color: var(--primary);
+        }
+
+        /* Card Styling for teaching items */
+        .teaching-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .teaching-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .teaching-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--text-light);
+        }
+
+        .teaching-card .role {
+            font-size: 0.95rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .teaching-card .details {
+            font-size: 0.95rem;
+            color: var(--secondary);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="particles-js"></div>
+
+    <nav class="navbar">
+        <a href="index.html"
+            style="font-family: 'Outfit'; font-weight: 700; font-size: 1.5rem; text-decoration: none; color: inherit;">NS.</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="cv.html">CV</a></li>
+            <li><a href="experience.html" class="active">Teaching</a></li>
+            <li><a href="software.html">Software</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+        <button id="theme-toggle" class="social-btn" style="width: 35px; height: 35px;"><i
+                class="fas fa-sun"></i></button>
+    </nav>
+
+    <div class="section-container" style="padding-top: 100px;">
+        <h1 class="section-title">Teaching & Mentorship</h1>
+
+        <!-- Mentorship Section -->
+        <div class="teaching-section" data-aos="fade-up">
+            <h2 class="teaching-header"><i class="fas fa-chalkboard-teacher"></i> Guiding Students</h2>
+
+            <div class="teaching-card">
+                <h4>Aditya Singh</h4>
+                <div class="role">M.Sc., IIT Delhi</div>
+                <div class="details">1 Year M.Sc. project</div>
+            </div>
+
+            <div class="teaching-card">
+                <h4>Neeraj Yadav</h4>
+                <div class="role">M.Tech, IIT Delhi</div>
+                <div class="details">1 Year M.Tech Project</div>
+            </div>
+
+            <div class="teaching-card">
+                <h4>Vidhi Agarwal</h4>
+                <div class="role">B.Tech, IIT Delhi</div>
+                <div class="details">6 Months B.Tech Project</div>
+            </div>
+
+            <div class="teaching-card">
+                <h4>Aryaman</h4>
+                <div class="role">B.Tech</div>
+                <div class="details">Short Internship student</div>
+            </div>
+        </div>
+
+        <!-- TAship Section -->
+        <div class="teaching-section" data-aos="fade-up">
+            <h2 class="teaching-header"><i class="fas fa-book-open"></i> Teaching Assistantship (IIT Delhi)</h2>
+
+            <div class="teaching-card">
+                <h4>CML101: Introduction to Chemistry</h4>
+                <div class="role">B.Tech, Semester 2 (2025-2026)</div>
+            </div>
+
+            <div class="teaching-card">
+                <h4>CMP511: M.Sc. Physical chemistry lab</h4>
+                <div class="role">M.Sc., Semester 1 (2025-2026)</div>
+            </div>
+
+            <div class="teaching-card">
+                <h4>CMP1000: B.Tech basic chemistry lab</h4>
+                <div class="role">B.Tech, Semester 2 (2025-2026)</div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer style="text-align: center; padding: 40px; color: var(--secondary); margin-top: 50px;">
+        <p>&copy; 2026 Nikhil Singh</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, offset: 50 });
+        particlesJS("particles-js", { "particles": { "number": { "value": 50 }, "color": { "value": "#2563eb" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5 }, "size": { "value": 3 }, "line_linked": { "enable": true, "distance": 150, "color": "#2563eb", "opacity": 0.3, "width": 1 }, "move": { "enable": true, "speed": 2 } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true } }, "retina_detect": true });
+
+        const toggleBtn = document.getElementById('theme-toggle');
+        const icon = toggleBtn.querySelector('i');
+        let isDark = localStorage.getItem('theme') === 'dark';
+        function updateTheme() {
+            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            icon.className = isDark ? 'fas fa-moon' : 'fas fa-sun';
+            const color = isDark ? '#ffffff' : '#2563eb';
+            if (window.pJSDom && window.pJSDom[0]) {
+                window.pJSDom[0].pJS.particles.color.value = color;
+                window.pJSDom[0].pJS.particles.line_linked.color = color;
+                window.pJSDom[0].pJS.fn.particlesRefresh();
+            }
+        }
+        toggleBtn.addEventListener('click', () => { isDark = !isDark; localStorage.setItem('theme', isDark ? 'dark' : 'light'); updateTheme(); });
+        updateTheme();
+    </script>
+</body>
+
+</html>
