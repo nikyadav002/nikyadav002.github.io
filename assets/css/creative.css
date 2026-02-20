@@ -439,6 +439,39 @@ h6 {
     line-height: 1.6;
 }
 
+/* Hamburger Menu Button */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 5px;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2.5px;
+    background: var(--text-light);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .hero-content {
@@ -451,11 +484,45 @@ h6 {
         font-size: 3rem;
     }
 
-    .nav-links {
-        display: none;
+    .hamburger {
+        display: flex;
+        margin-left: 10px;
     }
 
-    /* Mobile Menu would need JS */
+    #theme-toggle {
+        margin-left: auto;
+    }
+
+    .nav-links {
+        display: none !important;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 260px;
+        height: 100vh;
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-left: 1px solid var(--glass-border);
+        padding: 100px 30px 30px;
+        gap: 0;
+        z-index: 999;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex !important;
+    }
+
+    .nav-links li {
+        padding: 12px 0;
+        border-bottom: 1px solid var(--glass-border);
+    }
+
+    .nav-links a {
+        font-size: 1.1rem;
+    }
 
     .gallery-grid {
         column-count: 1;
@@ -490,5 +557,18 @@ h6 {
     .timeline-dot {
         left: 21px;
         right: auto;
+    }
+
+    .social-icons-hero {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .hero-card {
+        max-width: 280px;
+    }
+
+    .section-title {
+        font-size: 2rem;
     }
 }
