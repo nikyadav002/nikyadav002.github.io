@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Nikhil Singh | Home</title>
+    <meta name="description"
+        content="Nikhil Singh - PhD Researcher at IIT Delhi specializing in computational materials science, halide perovskites, and machine learning for materials discovery.">
     <link rel="stylesheet" href="./assets/css/creative.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -12,9 +14,13 @@
 </head>
 
 <body>
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+    </div>
+
     <div id="particles-js"></div>
 
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <a href="index.html"
             style="font-family: 'Outfit'; font-weight: 700; font-size: 1.5rem; text-decoration: none; color: inherit;">NS.</a>
         <ul class="nav-links">
@@ -93,19 +99,34 @@
         </div>
     </section>
 
-    <footer style="text-align: center; padding: 40px 20px; color: var(--secondary);">
+    <footer class="footer">
         <div data-aos="fade-up" style="margin-bottom: 30px;">
             <a href="https://info.flagcounter.com/1O1t" target="_blank">
                 <img src="https://s01.flagcounter.com/count2/1O1t/bg_FFFFFF/txt_000000/border_CCCCCC/columns_4/maxflags_12/viewers_0/labels_0/pageviews_0/flags_0/percent_0/"
                     alt="Flag Counter" border="0" style="border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
             </a>
         </div>
-        <p>&copy; 2026 Nikhil Singh</p>
+        <div class="footer-links" data-aos="fade-up" data-aos-delay="100">
+            <a href="https://scholar.google.com/citations?user=HzuwXBMAAAAJ&hl=en" target="_blank"><i
+                    class="fas fa-graduation-cap"></i></a>
+            <a href="https://github.com/nikyadav002" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/nikhilsingh002" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://orcid.org/0009-0007-4990-8748" target="_blank"><i class="fab fa-orcid"></i></a>
+            <a href="https://x.com/nikyadav002" target="_blank"><i class="fab fa-x-twitter"></i></a>
+        </div>
     </footer>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script>
+        // Page Loader
+        window.addEventListener('load', () => {
+            document.getElementById('pageLoader').classList.add('hidden');
+        });
+
         new Typed('#typing-text', {
             strings: ['Computational Materials Scientist', 'PhD Researcher at IIT Delhi', 'Machine Learning Enthusiast'],
             typeSpeed: 50,
@@ -121,6 +142,7 @@
             "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true } }, "retina_detect": true
         });
 
+        // Theme Toggle
         const toggleBtn = document.getElementById('theme-toggle');
         const icon = toggleBtn.querySelector('i');
         let isDark = localStorage.getItem('theme') === 'dark';
@@ -137,6 +159,7 @@
         toggleBtn.addEventListener('click', () => { isDark = !isDark; localStorage.setItem('theme', isDark ? 'dark' : 'light'); updateTheme(); });
         updateTheme();
 
+        // Hamburger Menu
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.querySelector('.nav-links');
         hamburger.addEventListener('click', () => {
@@ -149,6 +172,63 @@
                 navLinks.classList.remove('active');
             });
         });
+
+        // Navbar shrink on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll to Top
+        const scrollTopBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Animated Counter
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                const duration = 2000;
+                const start = 0;
+                const startTime = performance.now();
+
+                function update(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    counter.textContent = Math.floor(eased * target);
+                    if (progress < 1) requestAnimationFrame(update);
+                    else counter.textContent = target + '+';
+                }
+                requestAnimationFrame(update);
+            });
+        }
+
+        // Trigger counters when in view
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) statsObserver.observe(statsSection);
     </script>
 </body>
 

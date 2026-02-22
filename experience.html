@@ -64,9 +64,12 @@
 </head>
 
 <body>
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+    </div>
     <div id="particles-js"></div>
 
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <a href="index.html"
             style="font-family: 'Outfit'; font-weight: 700; font-size: 1.5rem; text-decoration: none; color: inherit;">NS.</a>
         <ul class="nav-links">
@@ -142,6 +145,8 @@
         <p>&copy; 2026 Nikhil Singh</p>
     </footer>
 
+    <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ once: true, offset: 50 });
@@ -165,16 +170,14 @@
 
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.querySelector('.nav-links');
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
+        hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); navLinks.classList.toggle('active'); });
+        navLinks.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { hamburger.classList.remove('active'); navLinks.classList.remove('active'); }); });
+
+        window.addEventListener('load', () => document.getElementById('pageLoader').classList.add('hidden'));
+        window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50));
+        const scrollTopBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => scrollTopBtn.classList.toggle('visible', window.scrollY > 400));
+        scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     </script>
 </body>
 

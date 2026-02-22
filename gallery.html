@@ -7,14 +7,17 @@
     <title>Nikhil Singh | Gallery</title>
     <link rel="stylesheet" href="./assets/css/creative.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
 </head>
 
 <body>
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+    </div>
     <div id="particles-js"></div>
 
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <a href="index.html"
             style="font-family: 'Outfit'; font-weight: 700; font-size: 1.5rem; text-decoration: none; color: inherit;">NS.</a>
         <ul class="nav-links">
@@ -59,8 +62,16 @@
         </div>
     </div>
 
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <img src="" alt="Lightbox Image" id="lightboxImg">
+    </div>
+
+    <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        window.addEventListener('load', () => document.getElementById('pageLoader').classList.add('hidden'));
         AOS.init({ once: true, offset: 50 });
         particlesJS("particles-js", { "particles": { "number": { "value": 50 }, "color": { "value": "#2563eb" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5 }, "size": { "value": 3 }, "line_linked": { "enable": true, "distance": 150, "color": "#2563eb", "opacity": 0.3, "width": 1 }, "move": { "enable": true, "speed": 2 } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true } }, "retina_detect": true });
 
@@ -71,27 +82,29 @@
             document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
             icon.className = isDark ? 'fas fa-moon' : 'fas fa-sun';
             const color = isDark ? '#ffffff' : '#2563eb';
-            if (window.pJSDom && window.pJSDom[0]) {
-                window.pJSDom[0].pJS.particles.color.value = color;
-                window.pJSDom[0].pJS.particles.line_linked.color = color;
-                window.pJSDom[0].pJS.fn.particlesRefresh();
-            }
+            if (window.pJSDom && window.pJSDom[0]) { window.pJSDom[0].pJS.particles.color.value = color; window.pJSDom[0].pJS.particles.line_linked.color = color; window.pJSDom[0].pJS.fn.particlesRefresh(); }
         }
         toggleBtn.addEventListener('click', () => { isDark = !isDark; localStorage.setItem('theme', isDark ? 'dark' : 'light'); updateTheme(); });
         updateTheme();
 
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.querySelector('.nav-links');
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
+        hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); navLinks.classList.toggle('active'); });
+        navLinks.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { hamburger.classList.remove('active'); navLinks.classList.remove('active'); }); });
+
+        window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50); });
+
+        const scrollTopBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => { scrollTopBtn.classList.toggle('visible', window.scrollY > 400); });
+        scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Lightbox
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            img.addEventListener('click', () => { lightboxImg.src = img.src; lightbox.classList.add('active'); });
         });
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
+        lightbox.addEventListener('click', () => lightbox.classList.remove('active'));
     </script>
 </body>
 
