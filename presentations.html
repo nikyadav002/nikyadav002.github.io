@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nikhil Singh | Presentations</title>
+    <link rel="stylesheet" href="./assets/css/creative.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <style>
+        .presentation-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            max-width: 900px;
+            margin: 0 auto 40px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .presentation-card:hover {
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .slide-viewer {
+            position: relative;
+            background: #1a1a2e;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .slide-viewer canvas {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .slide-nav {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 15%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 10;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0;
+        }
+
+        .slide-nav:hover {
+            opacity: 1;
+        }
+
+        .slide-nav i {
+            font-size: 2rem;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+            transition: transform 0.2s ease;
+        }
+
+        .slide-nav:hover i {
+            transform: scale(1.1);
+        }
+
+        .slide-prev {
+            left: 0;
+        }
+
+        .slide-next {
+            right: 0;
+        }
+
+        .slide-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 14px 20px;
+            background: var(--glass-bg);
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .slide-controls button {
+            background: none;
+            border: 1px solid var(--glass-border);
+            color: var(--text-light);
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .slide-controls button:hover:not(:disabled) {
+            background: linear-gradient(135deg, var(--primary), #8b5cf6);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+        }
+
+        .slide-controls button:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .page-indicator {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--secondary);
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .fullscreen-btn {
+            margin-left: auto;
+        }
+
+        .presentation-info {
+            padding: 20px 25px;
+        }
+
+        .presentation-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-light);
+        }
+
+        .presentation-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            color: var(--secondary);
+        }
+
+        .presentation-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .presentation-meta i {
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .view-count {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Progress bar */
+        .slide-progress {
+            height: 3px;
+            background: var(--glass-border);
+            position: relative;
+        }
+
+        .slide-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), #8b5cf6);
+            transition: width 0.3s ease;
+            border-radius: 0 2px 2px 0;
+        }
+
+        /* Fullscreen */
+        .slide-viewer.fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 3000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+        }
+
+        .slide-viewer.fullscreen canvas {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+        }
+
+        .slide-viewer.fullscreen .slide-nav {
+            width: 10%;
+        }
+
+        .fullscreen-close {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 3001;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+        }
+
+        .slide-viewer.fullscreen~.fullscreen-close {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Loading overlay */
+        .slide-loading {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #1a1a2e;
+            z-index: 5;
+        }
+
+        .slide-loading .loader-spinner {
+            border-top-color: #8b5cf6;
+        }
+
+        @media (max-width: 768px) {
+            .presentation-card {
+                border-radius: 14px;
+                margin: 0 auto 30px;
+            }
+
+            .slide-nav i {
+                width: 36px;
+                height: 36px;
+                font-size: 1.2rem;
+            }
+
+            .slide-controls {
+                gap: 12px;
+                padding: 10px 15px;
+            }
+
+            .presentation-info {
+                padding: 15px 18px;
+            }
+
+            .presentation-title {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+    </div>
+    <div id="particles-js"></div>
+
+    <nav class="navbar" id="navbar">
+        <a href="index.html"
+            style="font-family: 'Outfit'; font-weight: 700; font-size: 1.5rem; text-decoration: none; color: inherit;">NS.</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="cv.html">CV</a></li>
+            <li><a href="experience.html">Teaching</a></li>
+            <li><a href="presentations.html" class="active">Presentations</a></li>
+            <li><a href="software.html">Software</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+        <button id="theme-toggle" class="social-btn" style="width: 35px; height: 35px;"><i
+                class="fas fa-sun"></i></button>
+        <button class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="section-container" style="padding-top: 100px;">
+        <h1 class="section-title">Presentations</h1>
+
+        <div style="max-width: 900px; margin: 40px auto 0;">
+
+            <!-- Presentation 1 -->
+            <div class="presentation-card" data-aos="fade-up" id="pres-1">
+                <div class="slide-viewer" id="viewer-1">
+                    <div class="slide-loading" id="loading-1">
+                        <div class="loader-spinner"></div>
+                    </div>
+                    <canvas id="canvas-1"></canvas>
+                    <button class="slide-nav slide-prev" onclick="changeSlide('1', -1)"><i
+                            class="fas fa-chevron-left"></i></button>
+                    <button class="slide-nav slide-next" onclick="changeSlide('1', 1)"><i
+                            class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="slide-progress">
+                    <div class="slide-progress-bar" id="progress-1"></div>
+                </div>
+                <div class="slide-controls">
+                    <button onclick="changeSlide('1', -1)" id="prev-btn-1"><i class="fas fa-chevron-left"></i></button>
+                    <span class="page-indicator" id="page-info-1">1 / ?</span>
+                    <button onclick="changeSlide('1', 1)" id="next-btn-1"><i class="fas fa-chevron-right"></i></button>
+                    <button class="fullscreen-btn" onclick="toggleFullscreen('1')" title="Fullscreen"><i
+                            class="fas fa-expand"></i></button>
+                </div>
+                <div class="presentation-info">
+                    <div class="presentation-title">Generative Modelling</div>
+                    <div class="presentation-meta">
+                        <span><i class="fas fa-user"></i> Nikhil Singh</span>
+                        <span><i class="fas fa-calendar"></i> 2026</span>
+                        <span class="view-count"><i class="fas fa-eye"></i> <span id="views-1">0</span> views</span>
+                        <span><i class="fas fa-file-pdf"></i> <a href="./assets/presentations/generative-modelling.pdf"
+                                target="_blank" style="color: var(--primary); text-decoration: none;">Download
+                                PDF</a></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // PDF.js worker
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        // Presentation state
+        const presentations = {};
+
+        async function loadPresentation(id, url) {
+            try {
+                const pdf = await pdfjsLib.getDocument(url).promise;
+                presentations[id] = { pdf, currentPage: 1, totalPages: pdf.numPages, rendering: false };
+                document.getElementById(`page-info-${id}`).textContent = `1 / ${pdf.numPages}`;
+                document.getElementById(`progress-${id}`).style.width = `${(1 / pdf.numPages) * 100}%`;
+                await renderPage(id, 1);
+                document.getElementById(`loading-${id}`).style.display = 'none';
+                updateButtons(id);
+            } catch (err) {
+                console.error('Error loading PDF:', err);
+                document.getElementById(`loading-${id}`).innerHTML = '<p style="color: #ff6b6b;">Failed to load presentation</p>';
+            }
+        }
+
+        async function renderPage(id, pageNum) {
+            const pres = presentations[id];
+            if (pres.rendering) return;
+            pres.rendering = true;
+
+            const page = await pres.pdf.getPage(pageNum);
+            const canvas = document.getElementById(`canvas-${id}`);
+            const ctx = canvas.getContext('2d');
+
+            // Render at 2x for crisp display
+            const viewport = page.getViewport({ scale: 2 });
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+
+            await page.render({ canvasContext: ctx, viewport }).promise;
+            pres.rendering = false;
+        }
+
+        function changeSlide(id, delta) {
+            const pres = presentations[id];
+            if (!pres) return;
+            const newPage = pres.currentPage + delta;
+            if (newPage < 1 || newPage > pres.totalPages) return;
+            pres.currentPage = newPage;
+            document.getElementById(`page-info-${id}`).textContent = `${newPage} / ${pres.totalPages}`;
+            document.getElementById(`progress-${id}`).style.width = `${(newPage / pres.totalPages) * 100}%`;
+            renderPage(id, newPage);
+            updateButtons(id);
+        }
+
+        function updateButtons(id) {
+            const pres = presentations[id];
+            document.getElementById(`prev-btn-${id}`).disabled = pres.currentPage <= 1;
+            document.getElementById(`next-btn-${id}`).disabled = pres.currentPage >= pres.totalPages;
+        }
+
+        function toggleFullscreen(id) {
+            const viewer = document.getElementById(`viewer-${id}`);
+            if (viewer.classList.contains('fullscreen')) {
+                viewer.classList.remove('fullscreen');
+                document.body.style.overflow = '';
+            } else {
+                viewer.classList.add('fullscreen');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') changeSlide('1', 1);
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') changeSlide('1', -1);
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.slide-viewer.fullscreen').forEach(v => {
+                    v.classList.remove('fullscreen');
+                    document.body.style.overflow = '';
+                });
+            }
+        });
+
+        // Simple view counter using localStorage
+        function trackViews(id) {
+            const key = `pres-views-${id}`;
+            let views = parseInt(localStorage.getItem(key) || '0');
+            views++;
+            localStorage.setItem(key, views);
+            // Show a realistic-ish number
+            const baseViews = { '1': 0 };
+            const total = (baseViews[id] || 0) + views;
+            document.getElementById(`views-${id}`).textContent = total;
+        }
+
+        // Init
+        window.addEventListener('load', () => {
+            document.getElementById('pageLoader').classList.add('hidden');
+            loadPresentation('1', './assets/presentations/generative-modelling.pdf');
+            trackViews('1');
+        });
+
+        AOS.init({ once: true, offset: 50 });
+        particlesJS("particles-js", { "particles": { "number": { "value": 50 }, "color": { "value": "#2563eb" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5 }, "size": { "value": 3 }, "line_linked": { "enable": true, "distance": 150, "color": "#2563eb", "opacity": 0.3, "width": 1 }, "move": { "enable": true, "speed": 2 } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true } }, "retina_detect": true });
+
+        const toggleBtn = document.getElementById('theme-toggle');
+        const icon = toggleBtn.querySelector('i');
+        let isDark = localStorage.getItem('theme') === 'dark';
+        function updateTheme() {
+            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            icon.className = isDark ? 'fas fa-moon' : 'fas fa-sun';
+            const color = isDark ? '#ffffff' : '#2563eb';
+            if (window.pJSDom && window.pJSDom[0]) { window.pJSDom[0].pJS.particles.color.value = color; window.pJSDom[0].pJS.particles.line_linked.color = color; window.pJSDom[0].pJS.fn.particlesRefresh(); }
+        }
+        toggleBtn.addEventListener('click', () => { isDark = !isDark; localStorage.setItem('theme', isDark ? 'dark' : 'light'); updateTheme(); });
+        updateTheme();
+
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); navLinks.classList.toggle('active'); });
+        navLinks.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { hamburger.classList.remove('active'); navLinks.classList.remove('active'); }); });
+
+        window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50));
+        const scrollTopBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => scrollTopBtn.classList.toggle('visible', window.scrollY > 400));
+        scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+</body>
+
+</html>
