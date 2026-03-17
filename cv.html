@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./assets/css/creative.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+
     <style>
         .cv-section {
             margin-bottom: 60px;
@@ -48,8 +48,8 @@
         .cv-timeline-item {
             position: relative;
             margin-bottom: 30px;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
+            background: var(--surface-content);
+            border: 1px solid var(--border);
             border-radius: 12px;
             padding: 20px 25px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -69,7 +69,7 @@
             height: 12px;
             background: var(--primary);
             border-radius: 50%;
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+            box-shadow: 0 0 0 4px rgba(26, 86, 219, 0.2);
         }
 
         .cv-timeline-item h4 {
@@ -85,7 +85,7 @@
 
         .cv-timeline-item .date {
             font-size: 0.9rem;
-            color: var(--secondary);
+            color: var(--text-muted);
             margin-bottom: 10px;
         }
 
@@ -102,8 +102,8 @@
         }
 
         .skill-category {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
+            background: var(--surface-content);
+            border: 1px solid var(--border);
             border-radius: 12px;
             padding: 25px;
             transition: transform 0.3s ease;
@@ -129,7 +129,7 @@
         }
 
         .skill-tag {
-            background: rgba(37, 99, 235, 0.1);
+            background: rgba(26, 86, 219, 0.10);
             color: var(--primary);
             padding: 6px 12px;
             border-radius: 20px;
@@ -151,8 +151,8 @@
         }
 
         .award-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
+            background: var(--surface-content);
+            border: 1px solid var(--border);
             border-radius: 12px;
             padding: 25px;
             display: flex;
@@ -189,7 +189,7 @@
 
         .award-content .year {
             font-size: 0.85rem;
-            color: var(--secondary);
+            color: var(--text-muted);
             margin-bottom: 8px;
         }
 
@@ -201,10 +201,11 @@
 </head>
 
 <body>
+    <canvas id="crystal-bg"></canvas>
     <div class="page-loader" id="pageLoader">
         <div class="loader-spinner"></div>
     </div>
-    <div id="particles-js"></div>
+
 
     <nav class="navbar" id="navbar">
         <a href="index.html"
@@ -228,16 +229,12 @@
     <div class="section-container" style="padding-top: 100px;">
         <h1 class="section-title">Curriculum Vitae</h1>
 
-        <!-- Professional Summary -->
+        <!-- About -->
         <div class="cv-section" data-aos="fade-up">
-            <h2 class="cv-section-header"><i class="fas fa-user-tie"></i> Professional Summary</h2>
+            <h2 class="cv-section-header"><i class="fas fa-user"></i> About</h2>
             <div
-                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 12px; padding: 25px; font-size: 1.1rem; line-height: 1.7;">
-                Motivated research scholar with expertise in <strong>computational chemistry</strong> and
-                <strong>materials science</strong>, focusing on theoretical and computational approaches to understand
-                next-generation optoelectronic and energy materials. Skilled in <strong>molecular modelling</strong>,
-                <strong>molecular dynamics</strong>, and <strong>machine learning</strong> applications to address
-                real-world challenges in materials discovery.
+                style="background: var(--surface-content); border: 1px solid var(--border); border-radius: 12px; padding: 25px; font-size: 1.05rem; line-height: 1.75;">
+                I'm a PhD student at IIT Delhi working in computational materials science, using <strong>first-principles methods, molecular dynamics, and machine learning</strong> to study soft semiconductors at the atomic level. My research broadly examines how structure shapes carrier dynamics, defects, and excited-state processes, with a wider interest in data-driven materials discovery.
             </div>
         </div>
 
@@ -362,8 +359,7 @@
                     <div class="award-content">
                         <h4>Kawazoe Best Poster Award</h4>
                         <p class="year">ICMG-IV 2026</p>
-                        <p>Recognized for outstanding poster presentation at the 4th International Conference on
-                            Materials Genome.</p>
+                        <p>4th International Conference on Materials Genome.</p>
                     </div>
                 </div>
                 <div class="award-card">
@@ -371,8 +367,7 @@
                     <div class="award-content">
                         <h4>Young Researcher Award</h4>
                         <p class="year">E-MRS 2025 Fall Meeting</p>
-                        <p>Recognized for outstanding research contributions in computational materials science at the
-                            European Materials Research Society meeting.</p>
+                        <p>European Materials Research Society Fall Meeting, Warsaw.</p>
                     </div>
                 </div>
                 <div class="award-card">
@@ -380,8 +375,7 @@
                     <div class="award-content">
                         <h4>Silver Award – Abstract Writing Competition</h4>
                         <p class="year">In-house Symposium, IIT Delhi 2025</p>
-                        <p>Awarded for excellence in scientific communication at the Department of Chemistry symposium.
-                        </p>
+                        <p>Department of Chemistry annual symposium.</p>
                     </div>
                 </div>
                 <div class="award-card">
@@ -389,7 +383,6 @@
                     <div class="award-content">
                         <h4>Best Poster Award</h4>
                         <p class="year">In-house Symposium, Department of Chemistry, IIT Delhi</p>
-                        <p>Recognized for outstanding poster presentation at the departmental symposium.</p>
                     </div>
                 </div>
             </div>
@@ -404,7 +397,7 @@
             <a href="https://orcid.org/0009-0007-4990-8748" target="_blank"><i class="fab fa-orcid"></i></a>
             <a href="https://x.com/nikyadav002" target="_blank"><i class="fab fa-x-twitter"></i></a>
         </div>
-        <p style="color: var(--secondary); font-size: 0.9rem;">&copy; 2026 Nikhil Singh</p>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 Nikhil Singh</p>
     </footer>
 
     <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
@@ -412,7 +405,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ once: true, offset: 50 });
-        particlesJS("particles-js", { "particles": { "number": { "value": 50 }, "color": { "value": "#2563eb" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5 }, "size": { "value": 3 }, "line_linked": { "enable": true, "distance": 150, "color": "#2563eb", "opacity": 0.3, "width": 1 }, "move": { "enable": true, "speed": 2 } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true } }, "retina_detect": true });
 
         const toggleBtn = document.getElementById('theme-toggle');
         const icon = toggleBtn.querySelector('i');
@@ -441,6 +433,7 @@
         window.addEventListener('scroll', () => scrollTopBtn.classList.toggle('visible', window.scrollY > 400));
         scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     </script>
+    <script src="./assets/js/crystal-bg.js"></script>
 </body>
 
 </html>

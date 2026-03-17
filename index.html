@@ -11,15 +11,13 @@
     <link rel="stylesheet" href="./assets/css/creative.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
 </head>
 
 <body>
+    <canvas id="crystal-bg"></canvas>
     <div class="page-loader" id="pageLoader">
         <div class="loader-spinner"></div>
     </div>
-
-    <div id="particles-js"></div>
 
     <nav class="navbar" id="navbar">
         <a href="index.html"
@@ -44,35 +42,25 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text" data-aos="fade-right">
-                <h2>Hello, I'm</h2>
                 <h1>Nikhil Singh</h1>
-                <h3 style="font-size: 1.5rem; color: var(--secondary); margin-bottom: 20px;">
+                <h3 style="font-size: 1.6rem; color: var(--text-muted); margin-bottom: 20px; font-weight: 400;">
                     <span id="typing-text"></span>
                 </h3>
 
-                <div class="bio-text"
-                    style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 30px; background: var(--glass-bg); padding: 25px; border-radius: 16px; border: 1px solid var(--glass-border);">
-                    <p style="margin-bottom: 15px;">
+                <div class="bio-text" style="margin-bottom: 30px;">
+                    <p style="margin-bottom: 14px;">
                         I am a PhD researcher in the <a href="https://chemistry.iitd.ac.in/" target="_blank"
                             style="color: var(--primary); text-decoration: none; font-weight: 600;">Department of
                             Chemistry</a> at <a href="https://home.iitd.ac.in/" target="_blank"
-                            style="color: var(--primary); text-decoration: none; font-weight: 600;">IIT Delhi</a> under
-                        the supervision of <a href="https://sites.google.com/view/dibyajyoti-ghosh/home" target="_blank"
+                            style="color: var(--primary); text-decoration: none; font-weight: 600;">IIT Delhi</a>, working with <a href="https://sites.google.com/view/dibyajyoti-ghosh/home" target="_blank"
                             style="color: var(--primary); text-decoration: none; font-weight: 600;">Prof. Dibyajyoti
-                            Ghosh</a>, where my work focuses on computational design and atomistic understanding of
-                        next-generation optoelectronic and energy materials.
+                            Ghosh</a> in computational materials chemistry.
                     </p>
-                    <p style="margin-bottom: 15px;">
-                        My research integrates <strong>first-principles electronic-structure methods</strong>, ab-initio
-                        and machine-learning-accelerated molecular dynamics, and data-driven modelling to uncover
-                        structure–property relationships governing charge-carrier dynamics, defects, and excited-state
-                        processes in soft semiconductors.
+                    <p style="margin-bottom: 14px;">
+                        My work centers on understanding charge-carrier behavior in soft semiconductors using a combination of <strong>first-principles methods</strong>, ab initio and machine-learning-accelerated molecular dynamics, and non-adiabatic molecular dynamics, and data-driven approaches. I am broadly interested in the influence of structure on charge carrier dynamics, defects, and excited-state phenomena, particularly in <strong>halide perovskites</strong> and <strong>chalcogenides</strong>.
                     </p>
                     <p>
-                        My primary research interests include <strong>halide perovskites</strong>,
-                        <strong>chalcogenides</strong>, and <strong>other soft semiconductor materials</strong>, with an
-                        emphasis on hot-carrier physics, non-adiabatic processes, and materials discovery using
-                        interpretable machine learning.
+                        My research interests span hot-carrier physics, nonadiabatic processes, and interpretable machine learning for materials discovery.
                     </p>
                 </div>
             </div>
@@ -81,8 +69,7 @@
                 <img src="./images/profile.jpg" alt="Nikhil Singh Profile">
                 <div class="social-icons-hero" style="justify-content: center; margin-top: 15px;">
                     <a href="https://scholar.google.com/citations?user=HzuwXBMAAAAJ&hl=en" class="social-btn"
-                        style="width: auto; height: 45px; padding: 0 20px; border-radius: 12px; font-size: 0.9rem; font-weight: 600;">Google
-                        Scholar</a>
+                        style="width: auto; height: 38px; padding: 0 16px; border-radius: var(--radius-sm); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.01em;">Google Scholar</a>
                     <a href="https://github.com/nikyadav002" class="social-btn"><i class="fab fa-github"></i></a>
                     <a href="https://www.linkedin.com/in/nikhilsingh002" class="social-btn"><i
                             class="fab fa-linkedin-in"></i></a>
@@ -93,11 +80,12 @@
         </div>
     </section>
 
-    <section style="max-width: 1200px; margin: 80px auto; padding: 0 20px; text-align: center;">
-        <div data-aos="zoom-in"
-            style="display: inline-block; background: var(--glass-bg); padding: 20px; border-radius: 16px; border: 1px solid var(--glass-border); width: 100%; max-width: 600px;">
-            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7374341397983899648" height="500"
-                width="100%" frameborder="0" style="border-radius: 8px;"></iframe>
+    <section style="max-width: 700px; margin: 60px auto 0; padding: 0 20px;">
+        <h2 style="font-size: 1.1rem; font-weight: 600; color: var(--text-muted); margin-bottom: 16px; letter-spacing: 0.04em; text-transform: uppercase;">Latest on LinkedIn</h2>
+        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm);">
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7374341397983899648"
+                height="480" width="100%" frameborder="0" allowfullscreen=""
+                style="display: block;"></iframe>
         </div>
     </section>
 
@@ -130,19 +118,14 @@
         });
 
         new Typed('#typing-text', {
-            strings: ['Computational Materials Scientist', 'PhD Researcher at IIT Delhi', 'Machine Learning Enthusiast'],
-            typeSpeed: 50,
-            backSpeed: 30,
-            backDelay: 2000,
+            strings: ['PhD Researcher, IIT Delhi', 'Perovskites & Chalcogenides', 'DFT · MLMD · Data-Driven'],
+            typeSpeed: 55,
+            backSpeed: 35,
+            backDelay: 2200,
             loop: true,
             cursorChar: '|'
         });
         AOS.init({ once: true, offset: 50 });
-
-        particlesJS("particles-js", {
-            "particles": { "number": { "value": 50 }, "color": { "value": "#2563eb" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5 }, "size": { "value": 3 }, "line_linked": { "enable": true, "distance": 150, "color": "#2563eb", "opacity": 0.3, "width": 1 }, "move": { "enable": true, "speed": 2 } },
-            "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true } }, "retina_detect": true
-        });
 
         // Theme Toggle
         const toggleBtn = document.getElementById('theme-toggle');
@@ -232,6 +215,7 @@
         const statsSection = document.querySelector('.stats-section');
         if (statsSection) statsObserver.observe(statsSection);
     </script>
+    <script src="./assets/js/crystal-bg.js"></script>
 </body>
 
 </html>

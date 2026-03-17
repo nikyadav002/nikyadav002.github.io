@@ -9,23 +9,22 @@
     <link rel="stylesheet" href="./assets/css/creative.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <style>
         .presentation-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
+            background: var(--surface-content);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
             overflow: hidden;
             max-width: 900px;
             margin: 0 auto 40px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            box-shadow: var(--shadow-md);
             transition: box-shadow 0.3s ease;
         }
 
         .presentation-card:hover {
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+            box-shadow: var(--shadow-lg);
         }
 
         .slide-viewer {
@@ -94,14 +93,14 @@
             justify-content: center;
             gap: 20px;
             padding: 14px 20px;
-            background: var(--glass-bg);
-            border-top: 1px solid var(--glass-border);
+            background: var(--surface);
+            border-top: 1px solid var(--border);
         }
 
         .slide-controls button {
             background: none;
-            border: 1px solid var(--glass-border);
-            color: var(--text-light);
+            border: 1px solid var(--border);
+            color: var(--text);
             width: 38px;
             height: 38px;
             border-radius: 10px;
@@ -128,7 +127,7 @@
         .page-indicator {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.85rem;
-            color: var(--secondary);
+            color: var(--text-muted);
             min-width: 80px;
             text-align: center;
         }
@@ -146,7 +145,7 @@
             font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 8px;
-            color: var(--text-light);
+            color: var(--text);
         }
 
         .presentation-meta {
@@ -155,7 +154,7 @@
             gap: 20px;
             flex-wrap: wrap;
             font-size: 0.85rem;
-            color: var(--secondary);
+            color: var(--text-muted);
         }
 
         .presentation-meta span {
@@ -179,7 +178,7 @@
         /* Progress bar */
         .slide-progress {
             height: 3px;
-            background: var(--glass-border);
+            background: var(--border);
             position: relative;
         }
 
@@ -284,10 +283,11 @@
 </head>
 
 <body>
+    <canvas id="crystal-bg"></canvas>
     <div class="page-loader" id="pageLoader">
         <div class="loader-spinner"></div>
     </div>
-    <div id="particles-js"></div>
+
 
     <nav class="navbar" id="navbar">
         <a href="index.html"
@@ -338,12 +338,9 @@
                 <div class="presentation-info">
                     <div class="presentation-title">Generative Modelling</div>
                     <div class="presentation-meta">
-                        <span><i class="fas fa-user"></i> Nikhil Singh</span>
                         <span><i class="fas fa-calendar"></i> 2026</span>
-                        <span class="view-count"><i class="fas fa-eye"></i> <span id="views-1">0</span> views</span>
                         <span><i class="fas fa-file-pdf"></i> <a href="./assets/presentations/generative-modelling.pdf"
-                                target="_blank" style="color: var(--primary); text-decoration: none;">Download
-                                PDF</a></span>
+                                target="_blank" style="color: var(--primary); text-decoration: none;">Download PDF</a></span>
                     </div>
                 </div>
             </div>
@@ -359,7 +356,7 @@
             <a href="https://orcid.org/0009-0007-4990-8748" target="_blank"><i class="fab fa-orcid"></i></a>
             <a href="https://x.com/nikyadav002" target="_blank"><i class="fab fa-x-twitter"></i></a>
         </div>
-        <p style="color: var(--secondary); font-size: 0.9rem;">&copy; 2026 Nikhil Singh</p>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 Nikhil Singh</p>
     </footer>
 
     <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
@@ -446,27 +443,13 @@
             }
         });
 
-        // Simple view counter using localStorage
-        function trackViews(id) {
-            const key = `pres-views-${id}`;
-            let views = parseInt(localStorage.getItem(key) || '0');
-            views++;
-            localStorage.setItem(key, views);
-            // Show a realistic-ish number
-            const baseViews = { '1': 0 };
-            const total = (baseViews[id] || 0) + views;
-            document.getElementById(`views-${id}`).textContent = total;
-        }
-
         // Init
         window.addEventListener('load', () => {
             document.getElementById('pageLoader').classList.add('hidden');
             loadPresentation('1', './assets/presentations/generative-modelling.pdf');
-            trackViews('1');
         });
 
         AOS.init({ once: true, offset: 50 });
-        particlesJS("particles-js", { "particles": { "number": { "value": 50 }, "color": { "value": "#2563eb" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5 }, "size": { "value": 3 }, "line_linked": { "enable": true, "distance": 150, "color": "#2563eb", "opacity": 0.3, "width": 1 }, "move": { "enable": true, "speed": 2 } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true } }, "retina_detect": true });
 
         const toggleBtn = document.getElementById('theme-toggle');
         const icon = toggleBtn.querySelector('i');
@@ -490,6 +473,7 @@
         window.addEventListener('scroll', () => scrollTopBtn.classList.toggle('visible', window.scrollY > 400));
         scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     </script>
+    <script src="./assets/js/crystal-bg.js"></script>
 </body>
 
 </html>

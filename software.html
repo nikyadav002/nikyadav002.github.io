@@ -9,14 +9,15 @@
     <link rel="stylesheet" href="./assets/css/creative.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+
 </head>
 
 <body>
+    <canvas id="crystal-bg"></canvas>
     <div class="page-loader" id="pageLoader">
         <div class="loader-spinner"></div>
     </div>
-    <div id="particles-js"></div>
+
 
     <nav class="navbar" id="navbar">
         <a href="index.html"
@@ -39,7 +40,8 @@
 
     <div class="section-container" style="padding-top: 100px;">
         <h1 class="section-title">Software Projects</h1>
-        <div style="display: flex; justify-content: center; margin-top: 50px;" data-aos="flip-up">
+        <div style="background: var(--surface-content); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-top: 40px;" data-aos="fade-up">
+        <div style="display: flex; justify-content: center;" data-aos="flip-up">
             <div class="terminal-card" style="max-width: 800px; width: 100%;">
                 <div class="terminal-header">
                     <div class="window-btn btn-red"></div>
@@ -68,6 +70,7 @@
                 </div>
             </div>
         </div>
+        </div>
     </div>
 
     <footer class="footer">
@@ -78,7 +81,7 @@
             <a href="https://orcid.org/0009-0007-4990-8748" target="_blank"><i class="fab fa-orcid"></i></a>
             <a href="https://x.com/nikyadav002" target="_blank"><i class="fab fa-x-twitter"></i></a>
         </div>
-        <p style="color: var(--secondary); font-size: 0.9rem;">&copy; 2026 Nikhil Singh</p>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 Nikhil Singh</p>
     </footer>
 
     <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
@@ -86,7 +89,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ once: true, offset: 50 });
-        particlesJS("particles-js", { "particles": { "number": { "value": 50 }, "color": { "value": "#2563eb" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5 }, "size": { "value": 3 }, "line_linked": { "enable": true, "distance": 150, "color": "#2563eb", "opacity": 0.3, "width": 1 }, "move": { "enable": true, "speed": 2 } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true } }, "retina_detect": true });
 
         const toggleBtn = document.getElementById('theme-toggle');
         const icon = toggleBtn.querySelector('i');
@@ -115,6 +117,7 @@
         window.addEventListener('scroll', () => scrollTopBtn.classList.toggle('visible', window.scrollY > 400));
         scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     </script>
+    <script src="./assets/js/crystal-bg.js"></script>
 </body>
 
 </html>

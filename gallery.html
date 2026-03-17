@@ -9,14 +9,15 @@
     <link rel="stylesheet" href="./assets/css/creative.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+
 </head>
 
 <body>
+    <canvas id="crystal-bg"></canvas>
     <div class="page-loader" id="pageLoader">
         <div class="loader-spinner"></div>
     </div>
-    <div id="particles-js"></div>
+
 
     <nav class="navbar" id="navbar">
         <a href="index.html"
@@ -39,28 +40,37 @@
 
     <div class="section-container" style="padding-top: 100px;">
         <h1 class="section-title">Gallery</h1>
+        <div style="background: var(--surface-content); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px;" data-aos="fade-up">
         <div class="gallery-grid">
             <div class="gallery-item" data-aos="fade-up">
-                <img src="./images/gallery/emrs-2025-award.jpg" alt="Award 1">
+                <img src="./images/gallery/emrs-2025-award.jpg" alt="Young Researcher Award at E-MRS 2025 Fall Meeting">
+                <div class="gallery-caption">Young Researcher Award — E-MRS Fall 2025, Warsaw</div>
             </div>
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                <img src="./images/gallery/aapali-psi-k-2025.jpg" alt="Poster 1">
+                <img src="./images/gallery/aapali-psi-k-2025.jpg" alt="AAPALI / Psi-k 2025 poster">
+                <div class="gallery-caption">Poster at AAPALI / Psi-k 2025</div>
             </div>
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                <img src="./images/gallery/in-house-symposium.jpg" alt="Symposium">
+                <img src="./images/gallery/in-house-symposium.jpg" alt="In-house Symposium, IIT Delhi">
+                <div class="gallery-caption">In-house Symposium — Dept. of Chemistry, IIT Delhi</div>
             </div>
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
-                <img src="./images/gallery/abstract-writing-award.jpg" alt="Award 2">
+                <img src="./images/gallery/abstract-writing-award.jpg" alt="Silver Award, Abstract Writing Competition, IIT Delhi 2025">
+                <div class="gallery-caption">Silver Award — Abstract Writing Competition, IIT Delhi 2025</div>
             </div>
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="400">
-                <img src="./images/gallery/iiser-pune-group.jpg" alt="IISER Pune Group Photo">
+                <img src="./images/gallery/iiser-pune-group.jpg" alt="Group visit at IISER Pune">
+                <div class="gallery-caption">Group visit — IISER Pune</div>
             </div>
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="500">
-                <img src="./images/gallery/poster-presentation.jpg" alt="Poster Presentation">
+                <img src="./images/gallery/poster-presentation.jpg" alt="Poster presentation">
+                <div class="gallery-caption">Poster presentation</div>
             </div>
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="600">
-                <img src="./images/gallery/icmg-iv-2026.jpg" alt="ICMG-IV 2026">
+                <img src="./images/gallery/icmg-iv-2026.jpg" alt="Kawazoe Best Poster Award at ICMG-IV 2026">
+                <div class="gallery-caption">Kawazoe Best Poster Award — ICMG-IV 2026</div>
             </div>
+        </div>
         </div>
     </div>
 
@@ -72,7 +82,7 @@
             <a href="https://orcid.org/0009-0007-4990-8748" target="_blank"><i class="fab fa-orcid"></i></a>
             <a href="https://x.com/nikyadav002" target="_blank"><i class="fab fa-x-twitter"></i></a>
         </div>
-        <p style="color: var(--secondary); font-size: 0.9rem;">&copy; 2026 Nikhil Singh</p>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 Nikhil Singh</p>
     </footer>
 
     <!-- Lightbox -->
@@ -86,7 +96,6 @@
     <script>
         window.addEventListener('load', () => document.getElementById('pageLoader').classList.add('hidden'));
         AOS.init({ once: true, offset: 50 });
-        particlesJS("particles-js", { "particles": { "number": { "value": 50 }, "color": { "value": "#2563eb" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5 }, "size": { "value": 3 }, "line_linked": { "enable": true, "distance": 150, "color": "#2563eb", "opacity": 0.3, "width": 1 }, "move": { "enable": true, "speed": 2 } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true } }, "retina_detect": true });
 
         const toggleBtn = document.getElementById('theme-toggle');
         const icon = toggleBtn.querySelector('i');
@@ -119,6 +128,7 @@
         });
         lightbox.addEventListener('click', () => lightbox.classList.remove('active'));
     </script>
+    <script src="./assets/js/crystal-bg.js"></script>
 </body>
 
 </html>

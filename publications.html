@@ -9,86 +9,144 @@
     <link rel="stylesheet" href="./assets/css/creative.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+
     <style>
+        /* ── Section header ── */
         .pub-section {
-            margin-bottom: 60px;
+            margin-bottom: 56px;
+            background: var(--surface-content);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 32px;
         }
 
         .pub-section-header {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            border-left: 5px solid var(--primary);
-            padding-left: 15px;
-        }
-
-        .pub-long-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .pub-long-card:hover {
-            transform: translateX(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border-left: 4px solid var(--primary);
-        }
-
-        .pub-long-card .tag {
-            font-size: 0.85rem;
+            font-size: 1rem;
             font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 8px;
-            display: inline-block;
-            background: rgba(37, 99, 235, 0.1);
-            padding: 2px 8px;
-            border-radius: 4px;
-            width: fit-content;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .pub-long-card .title {
-            font-size: 1.25rem;
+        .pub-section-header::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* ── Publication entry ── */
+        .pub-entry {
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.2s ease;
+        }
+
+        .pub-entry:last-child {
+            border-bottom: none;
+        }
+
+        .pub-entry:hover {
+            background: var(--bg-alt);
+            margin: 0 -16px;
+            padding: 18px 16px;
+            border-radius: var(--radius-sm);
+            border-bottom-color: transparent;
+        }
+
+        .pub-body {}
+
+        .pub-venue {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.73rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+
+        .pub-title-text {
+            font-size: 1.02rem;
             font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--text-light);
-            text-decoration: none;
+            line-height: 1.45;
+            color: var(--text);
+            margin-bottom: 6px;
         }
 
-        .pub-long-card .title a {
+        .pub-title-text a {
             color: inherit;
             text-decoration: none;
             transition: color 0.2s;
         }
 
-        .pub-long-card .title a:hover {
+        .pub-title-text a:hover {
             color: var(--primary);
         }
 
-        .pub-long-card .authors {
-            font-size: 1rem;
-            color: var(--text-light);
-            margin-bottom: 5px;
+        .pub-authors {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+            line-height: 1.5;
         }
 
-        .pub-long-card .journal {
+        .pub-authors strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .pub-journal-line {
+            font-size: 0.84rem;
+            color: var(--text-muted);
             font-style: italic;
-            color: var(--secondary);
-            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .pub-link {
+            font-style: normal;
+            font-size: 0.76rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1px 7px;
+            letter-spacing: 0.02em;
+            transition: all 0.2s ease;
+        }
+
+        .pub-link:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* equal contribution note */
+        .pub-note {
+            font-size: 0.76rem;
+            color: var(--text-muted);
+            font-style: normal;
+            margin-top: 3px;
         }
     </style>
 </head>
 
 <body>
+    <canvas id="crystal-bg"></canvas>
     <div class="page-loader" id="pageLoader">
         <div class="loader-spinner"></div>
     </div>
-    <div id="particles-js"></div>
+
 
     <nav class="navbar" id="navbar">
         <a href="index.html"
@@ -111,147 +169,133 @@
 
     <div class="section-container" style="padding-top: 100px;">
         <h1 class="section-title">Publications</h1>
+        <p style="text-align: center; color: var(--text-muted); margin-top: -30px; margin-bottom: 52px; font-size: 0.9rem;">
+            Full list on <a href="https://scholar.google.com/citations?user=HzuwXBMAAAAJ&hl=en" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 600;">Google Scholar</a>
+        </p>
 
+        <!-- First Author -->
         <div class="pub-section" data-aos="fade-up">
             <h2 class="pub-section-header">First Author</h2>
 
-            <div class="pub-long-card">
-                <span class="tag">[Phys. Rev. Applied 2026]</span>
-                <div class="title"><a href="https://doi.org/10.1103/r77p-wl3l" target="_blank">Data-driven
-                        Discovery of Novel High-performance Quaternary Chalcogenide Photovoltaics</a></div>
-                <div class="authors"><strong>N Singh</strong><sup>†</sup>, M Ubaid<sup>†</sup>, PK Nayak, J He, D Ghosh,
-                    C Wolverton, K Pal
-                    (<sup>†</sup>Equal contribution)</div>
-                <div class="journal">Physical Review Applied (2026) | <a
-                        href="https://doi.org/10.48550/arXiv.2507.15430" target="_blank"
-                        style="color: var(--primary); text-decoration: none;">arXiv:2507.15430</a></div>
+            <div class="pub-entry">
+                <div class="pub-venue">Phys. Rev. Applied · 2026</div>
+                <div class="pub-title-text"><a href="https://doi.org/10.1103/r77p-wl3l" target="_blank">Data-driven Discovery of Novel High-performance Quaternary Chalcogenide Photovoltaics</a></div>
+                <div class="pub-authors"><strong>N Singh</strong><sup>†</sup>, M Ubaid<sup>†</sup>, PK Nayak, J He, D Ghosh, C Wolverton, K Pal</div>
+                <div class="pub-journal-line">Physical Review Applied (2026) <a href="https://doi.org/10.48550/arXiv.2507.15430" target="_blank" class="pub-link">arXiv</a></div>
+                <div class="pub-note"><sup>†</sup>Equal contribution</div>
             </div>
 
-            <div class="pub-long-card">
-                <span class="tag">[Chem. Mater. 2025]</span>
-                <div class="title"><a href="https://doi.org/10.1021/acs.chemmater.5c01315" target="_blank">Hot Carrier
-                        Relaxation in Halide Double Perovskites: Insights from Ab Initio Models and Structure-Informed
-                        Machine Learning</a></div>
-                <div class="authors"><strong>N Singh</strong>, D Ghosh</div>
-                <div class="journal">Chemistry of Materials, 37(17), 6697-6707</div>
+            <div class="pub-entry">
+                <div class="pub-venue">Chem. Mater. · 2025</div>
+                <div class="pub-title-text"><a href="https://doi.org/10.1021/acs.chemmater.5c01315" target="_blank">Hot Carrier Relaxation in Halide Double Perovskites: Insights from Ab Initio Models and Structure-Informed Machine Learning</a></div>
+                <div class="pub-authors"><strong>N Singh</strong>, D Ghosh</div>
+                <div class="pub-journal-line">Chemistry of Materials, 37(17), 6697–6707</div>
             </div>
 
-            <div class="pub-long-card">
-                <span class="tag">[J. Mater. Chem. A 2025]</span>
-                <div class="title"><a href="https://pubs.rsc.org/en/content/articlehtml/2008/jb/d4ta08867k"
-                        target="_blank">High-throughput and data-driven search for stable optoelectronic AMSe3
-                        materials</a></div>
-                <div class="authors"><strong>N Singh</strong>, K Samanta, SK Maharana, K Pal, S Tretiak, A Talapatra, D
-                    Ghosh</div>
-                <div class="journal">Journal of Materials Chemistry A, 13(13), 9192-9210</div>
+            <div class="pub-entry">
+                <div class="pub-venue">J. Mater. Chem. A · 2025</div>
+                <div class="pub-title-text"><a href="https://pubs.rsc.org/en/content/articlehtml/2008/jb/d4ta08867k" target="_blank">High-throughput and data-driven search for stable optoelectronic AMSe<sub>3</sub> materials</a></div>
+                <div class="pub-authors"><strong>N Singh</strong><sup>†</sup>, K Samanta<sup>†</sup>, SK Maharana, K Pal, S Tretiak, A Talapatra, D Ghosh</div>
+                <div class="pub-journal-line">Journal of Materials Chemistry A, 13(13), 9192–9210</div>
+                <div class="pub-note"><sup>†</sup>Equal contribution</div>
             </div>
 
-            <div class="pub-long-card">
-                <span class="tag">[ACS Appl. Energy Mater. 2025]</span>
-                <div class="title"><a href="https://doi.org/10.1021/acsaem.5c02732" target="_blank">Designing
-                        Sulfur-Substituted NASICON Electrolyte for Sodium-Ion Batteries</a></div>
-                <div class="authors">R Jain<sup>†</sup>, <strong>N Singh</strong><sup>†</sup>, A Kumari, D Ghosh
-                    (<sup>†</sup>Equal contribution)</div>
-                <div class="journal">ACS Applied Energy Materials, 8(21), 16233-16241</div>
+            <div class="pub-entry">
+                <div class="pub-venue">ACS Appl. Energy Mater. · 2025</div>
+                <div class="pub-title-text"><a href="https://doi.org/10.1021/acsaem.5c02732" target="_blank">Designing Sulfur-Substituted NASICON Electrolyte for Sodium-Ion Batteries</a></div>
+                <div class="pub-authors">R Jain<sup>†</sup>, <strong>N Singh</strong><sup>†</sup>, A Kumari, D Ghosh</div>
+                <div class="pub-journal-line">ACS Applied Energy Materials, 8(21), 16233–16241</div>
+                <div class="pub-note"><sup>†</sup>Equal contribution</div>
             </div>
         </div>
 
+        <!-- Co-Author -->
         <div class="pub-section" data-aos="fade-up">
             <h2 class="pub-section-header">Co-Author</h2>
 
-            <div class="pub-long-card">
-                <span class="tag">[ACS Nano 2026]</span>
-                <div class="title"><a href="https://doi.org/10.1021/acsnano.5c22369" target="_blank">Defect-Driven
-                        Surface and Electronic Structure Modulation in Alloyed Bismuth Chalcogenide Nanosheets for CO2
-                        Reduction</a></div>
-                <div class="authors">MS Hassan, B Khan, <strong>N Singh</strong>, et al.</div>
-                <div class="journal">ACS Nano (2026)</div>
+            <div class="pub-entry">
+                <div class="pub-venue">ACS Nano · 2026</div>
+                <div class="pub-title-text"><a href="https://doi.org/10.1021/acsnano.5c22369" target="_blank">Defect-Driven Surface and Electronic Structure Modulation in Alloyed Bismuth Chalcogenide Nanosheets for CO<sub>2</sub> Reduction</a></div>
+                <div class="pub-authors">MS Hassan, B Khan, <strong>N Singh</strong>, et al.</div>
+                <div class="pub-journal-line">ACS Nano (2026)</div>
             </div>
 
-            <div class="pub-long-card">
-                <span class="tag">[Adv. Funct. Mater. 2025]</span>
-                <div class="title">A Homochiral Neutral Organic Molecule as Active Ferroelectric for Memtransistor</div>
-                <div class="authors">R Samanta, R Panday, A Sahoo, <strong>N Singh</strong>, KR Khator, et al.</div>
-                <div class="journal">Advanced Functional Materials, 2501546</div>
+            <div class="pub-entry">
+                <div class="pub-venue">Adv. Funct. Mater. · 2025</div>
+                <div class="pub-title-text">A Homochiral Neutral Organic Molecule as Active Ferroelectric for Memtransistor</div>
+                <div class="pub-authors">R Samanta, R Panday, A Sahoo, <strong>N Singh</strong>, KR Khator, et al.</div>
+                <div class="pub-journal-line">Advanced Functional Materials, 2501546</div>
             </div>
 
-            <div class="pub-long-card">
-                <span class="tag">[ACS Mater. Lett. 2025]</span>
-                <div class="title">Tuning Hot Carrier Dynamics in Vacancy-Ordered Halide Perovskites through Lattice
-                    Compression</div>
-                <div class="authors">B Kamboj, <strong>N Singh</strong>, PK Nayak, D Ghosh</div>
-                <div class="journal">ACS Materials Letters, 7(4), 1547-1554</div>
+            <div class="pub-entry">
+                <div class="pub-venue">ACS Mater. Lett. · 2025</div>
+                <div class="pub-title-text">Tuning Hot Carrier Dynamics in Vacancy-Ordered Halide Perovskites through Lattice Compression</div>
+                <div class="pub-authors">B Kamboj, <strong>N Singh</strong>, PK Nayak, D Ghosh</div>
+                <div class="pub-journal-line">ACS Materials Letters, 7(4), 1547–1554</div>
             </div>
 
-            <div class="pub-long-card">
-                <span class="tag">[Small 2025]</span>
-                <div class="title">Transition Metal-Based Perovskite Derivatives for Selective CO2 Photoreduction</div>
-                <div class="authors">S Choudhary, NK Tailor, G Venkanna, <strong>N Singh</strong>, et al.</div>
-                <div class="journal">Small, 21(12), 2409961</div>
+            <div class="pub-entry">
+                <div class="pub-venue">Small · 2025</div>
+                <div class="pub-title-text">Transition Metal-Based Perovskite Derivatives for Selective CO<sub>2</sub> Photoreduction</div>
+                <div class="pub-authors">S Choudhary, NK Tailor, G Venkanna, <strong>N Singh</strong>, et al.</div>
+                <div class="pub-journal-line">Small, 21(12), 2409961</div>
             </div>
 
-            <div class="pub-long-card">
-                <span class="tag">[Scripta Mater. 2025]</span>
-                <div class="title">Effect of β-stabilizer niobium on diffusional properties of the BCC β-Ti(Al) phase
-                </div>
-                <div class="authors">S Mehrotra, <strong>N Singh</strong>, D Ghosh, S Santra</div>
-                <div class="journal">Scripta Materialia, 263, 116695</div>
+            <div class="pub-entry">
+                <div class="pub-venue">Scripta Mater. · 2025</div>
+                <div class="pub-title-text">Effect of β-stabilizer niobium on diffusional properties of the BCC β-Ti(Al) phase</div>
+                <div class="pub-authors">S Mehrotra, <strong>N Singh</strong>, D Ghosh, S Santra</div>
+                <div class="pub-journal-line">Scripta Materialia, 263, 116695</div>
             </div>
 
-            <div class="pub-long-card">
-                <span class="tag">[ACS Appl. Mater. Interfaces 2025]</span>
-                <div class="title">Interstitial Copper Doping in Cs3Bi2Br9: A Pathway to Enhanced Radiation Detection
-                    Performance</div>
-                <div class="authors">NK Tailor, J Ghosh, <strong>N Singh</strong>, et al.</div>
-                <div class="journal">ACS Applied Materials & Interfaces</div>
+            <div class="pub-entry">
+                <div class="pub-venue">ACS Appl. Mater. Interfaces · 2025</div>
+                <div class="pub-title-text">Interstitial Copper Doping in Cs<sub>3</sub>Bi<sub>2</sub>Br<sub>9</sub>: A Pathway to Enhanced Radiation Detection Performance</div>
+                <div class="pub-authors">NK Tailor, J Ghosh, <strong>N Singh</strong>, et al.</div>
+                <div class="pub-journal-line">ACS Applied Materials &amp; Interfaces</div>
             </div>
 
-            <div class="pub-long-card">
-                <span class="tag">[J. Phys. Chem. Lett. 2025]</span>
-                <div class="title">Nonradiative Recombination of Excitons in Periodic Solids</div>
-                <div class="authors">A Forde, C MoraPerez, <strong>N Singh</strong>, D Ghosh, et al.</div>
-                <div class="journal">The Journal of Physical Chemistry Letters, 16, 5929-5937</div>
+            <div class="pub-entry">
+                <div class="pub-venue">J. Phys. Chem. Lett. · 2025</div>
+                <div class="pub-title-text">Nonradiative Recombination of Excitons in Periodic Solids</div>
+                <div class="pub-authors">A Forde, C MoraPerez, <strong>N Singh</strong>, D Ghosh, et al.</div>
+                <div class="pub-journal-line">The Journal of Physical Chemistry Letters, 16, 5929–5937</div>
             </div>
 
-            <div class="pub-long-card">
-                <span class="tag">[J. Phys. Chem. C 2025]</span>
-                <div class="title">Unveiling the mechanisms of photoluminescence quantum yield surge in Cs2AgInCl6
-                    nanocrystals</div>
-                <div class="authors">R Singh, A Singh, <strong>N Singh</strong>, S Kumar, D Ghosh, S Sapra</div>
-                <div class="journal">The Journal of Physical Chemistry C, 129(33), 14941-14948</div>
+            <div class="pub-entry">
+                <div class="pub-venue">J. Phys. Chem. C · 2025</div>
+                <div class="pub-title-text">Unveiling the mechanisms of photoluminescence quantum yield surge in Cs<sub>2</sub>AgInCl<sub>6</sub> nanocrystals</div>
+                <div class="pub-authors">R Singh, A Singh, <strong>N Singh</strong>, S Kumar, D Ghosh, S Sapra</div>
+                <div class="pub-journal-line">The Journal of Physical Chemistry C, 129(33), 14941–14948</div>
             </div>
 
-            <div class="pub-long-card">
-                <span class="tag">[Angew. Chem. Int. Ed. 2025]</span>
-                <div class="title">Enhanced Emission in Core@Shell Heterostructure of 3D Halide Double Perovskites</div>
-                <div class="authors">R Singh, A Singh, G Sharma, <strong>N Singh</strong>, et al.</div>
-                <div class="journal">Angewandte Chemie International Edition, 64(46), e202510774</div>
+            <div class="pub-entry">
+                <div class="pub-venue">Angew. Chem. Int. Ed. · 2025</div>
+                <div class="pub-title-text">Enhanced Emission in Core@Shell Heterostructure of 3D Halide Double Perovskites</div>
+                <div class="pub-authors">R Singh, A Singh, G Sharma, <strong>N Singh</strong>, et al.</div>
+                <div class="pub-journal-line">Angewandte Chemie International Edition, 64(46), e202510774</div>
             </div>
 
-
-
-            <div class="pub-long-card">
-                <span class="tag">[Small 2025]</span>
-                <div class="title">Unraveling A-Site Cation Control of Hot Carrier Relaxation in Vacancy-Ordered Halide
-                    Perovskites</div>
-                <div class="authors">B Kamboj, PK Nayak, <strong>N Singh</strong>, D Ghosh</div>
-                <div class="journal">Small, e07018</div>
+            <div class="pub-entry">
+                <div class="pub-venue">Small · 2025</div>
+                <div class="pub-title-text">Unraveling A-Site Cation Control of Hot Carrier Relaxation in Vacancy-Ordered Halide Perovskites</div>
+                <div class="pub-authors">B Kamboj, PK Nayak, <strong>N Singh</strong>, D Ghosh</div>
+                <div class="pub-journal-line">Small, e07018</div>
             </div>
 
-            <div class="pub-long-card">
-                <span class="tag">[Adv. Energy Mater. 2024]</span>
-                <div class="title">Exploring the Feasibility of Copper Incorporation in Halide Perovskites</div>
-                <div class="authors">NK Tailor, S Singh, <strong>N Singh</strong>, et al.</div>
-                <div class="journal">Advanced Energy Materials, 14(39), 2402087</div>
+            <div class="pub-entry">
+                <div class="pub-venue">Adv. Energy Mater. · 2024</div>
+                <div class="pub-title-text">Exploring the Feasibility of Copper Incorporation in Halide Perovskites</div>
+                <div class="pub-authors">NK Tailor, S Singh, <strong>N Singh</strong>, et al.</div>
+                <div class="pub-journal-line">Advanced Energy Materials, 14(39), 2402087</div>
             </div>
 
-            <div class="pub-long-card">
-                <span class="tag">[Chem. Commun. 2024]</span>
-                <div class="title">Scalable organocatalytic one pot asymmetric Strecker reaction</div>
-                <div class="authors">A Malik, K Antil, <strong>N Singh</strong>, PR Sharma, RK Sharma</div>
-                <div class="journal">Chemical Communications, 60(65), 8561-8564</div>
+            <div class="pub-entry">
+                <div class="pub-venue">Chem. Commun. · 2024</div>
+                <div class="pub-title-text">Scalable organocatalytic one pot asymmetric Strecker reaction</div>
+                <div class="pub-authors">A Malik, K Antil, <strong>N Singh</strong>, PR Sharma, RK Sharma</div>
+                <div class="pub-journal-line">Chemical Communications, 60(65), 8561–8564</div>
             </div>
-
         </div>
     </div>
 
@@ -263,7 +307,7 @@
             <a href="https://orcid.org/0009-0007-4990-8748" target="_blank"><i class="fab fa-orcid"></i></a>
             <a href="https://x.com/nikyadav002" target="_blank"><i class="fab fa-x-twitter"></i></a>
         </div>
-        <p style="color: var(--secondary); font-size: 0.9rem;">&copy; 2026 Nikhil Singh</p>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 Nikhil Singh</p>
     </footer>
 
     <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
@@ -271,7 +315,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ once: true, offset: 50 });
-        particlesJS("particles-js", { "particles": { "number": { "value": 50 }, "color": { "value": "#2563eb" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5 }, "size": { "value": 3 }, "line_linked": { "enable": true, "distance": 150, "color": "#2563eb", "opacity": 0.3, "width": 1 }, "move": { "enable": true, "speed": 2 } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true } }, "retina_detect": true });
 
         const toggleBtn = document.getElementById('theme-toggle');
         const icon = toggleBtn.querySelector('i');
@@ -300,6 +343,7 @@
         window.addEventListener('scroll', () => scrollTopBtn.classList.toggle('visible', window.scrollY > 400));
         scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     </script>
+    <script src="./assets/js/crystal-bg.js"></script>
 </body>
 
 </html>
