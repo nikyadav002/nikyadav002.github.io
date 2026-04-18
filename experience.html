@@ -33,6 +33,12 @@
             color: var(--primary);
         }
 
+        .students-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
         /* Card Styling for teaching items */
         .teaching-card {
             background: none;
@@ -44,6 +50,20 @@
             transition: none;
         }
 
+        .students-grid .teaching-card {
+            border-bottom: none;
+            padding: 16px 20px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .students-grid .teaching-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
         .teaching-card:last-child {
             border-bottom: none;
             padding-bottom: 0;
@@ -52,6 +72,12 @@
         .teaching-card:hover {
             transform: none;
             box-shadow: none;
+        }
+
+        @media (max-width: 768px) {
+            .students-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .teaching-card h4 {
@@ -107,33 +133,47 @@
         <div class="teaching-section" data-aos="fade-up">
             <h2 class="teaching-header"><i class="fas fa-chalkboard-teacher"></i> Students I've Worked With</h2>
 
-            <div class="teaching-card">
-                <h4>Aditya Singh</h4>
-                <div class="role">M.Sc., IIT Delhi</div>
-                <div class="details">MSc thesis project (1 year)</div>
-            </div>
+            <div class="students-grid">
+                <div class="teaching-card">
+                    <h4>Ishita Ghosh</h4>
+                    <div class="role">M.Tech, IIT Delhi</div>
+                    <div class="details">MTech project student</div>
+                </div>
 
-            <div class="teaching-card">
-                <h4>Neeraj Yadav</h4>
-                <div class="role">M.Tech, IIT Delhi</div>
-                <div class="details">MTech thesis project (1 year)</div>
-            </div>
+                <div class="teaching-card">
+                    <h4>Aditya Singh</h4>
+                    <div class="role">M.Sc., IIT Delhi</div>
+                    <div class="details">MSc thesis project (1 year)</div>
+                </div>
 
-            <div class="teaching-card">
-                <h4>Vidhi Agarwal</h4>
-                <div class="role">B.Tech, IIT Delhi</div>
-                <div class="details">BTech project (6 months)</div>
-            </div>
+                <div class="teaching-card">
+                    <h4>Neeraj Yadav</h4>
+                    <div class="role">M.Tech, IIT Delhi</div>
+                    <div class="details">MTech thesis project (1 year)</div>
+                </div>
 
-            <div class="teaching-card">
-                <h4>Aryaman</h4>
-                <div class="role">B.Tech</div>
-                <div class="details">Short-term internship</div>
-            </div>
+                <div class="teaching-card">
+                    <h4>Anushka</h4>
+                    <div class="role">B.Tech, IIT Delhi</div>
+                    <div class="details">BTech project student</div>
+                </div>
 
-            <div class="teaching-card">
-                <h4>Jitesh Kumar Arora</h4>
-                <div class="role">Research Intern</div>
+                <div class="teaching-card">
+                    <h4>Vidhi Agarwal</h4>
+                    <div class="role">B.Tech, IIT Delhi</div>
+                    <div class="details">BTech project (6 months)</div>
+                </div>
+
+                <div class="teaching-card">
+                    <h4>Aryaman</h4>
+                    <div class="role">B.Tech</div>
+                    <div class="details">Short-term internship</div>
+                </div>
+
+                <div class="teaching-card">
+                    <h4>Jitesh Kumar Arora</h4>
+                    <div class="role">Research Intern</div>
+                </div>
             </div>
         </div>
 
