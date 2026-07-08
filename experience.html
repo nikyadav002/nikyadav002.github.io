@@ -1,273 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Theme adapted from https://github.com/luost26/academic-homepage -->
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Nikhil Singh | Teaching</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Teaching - Nikhil Singh</title>
     <link rel="icon" type="image/svg+xml" href="./favicon.svg">
-    <link rel="stylesheet" href="./assets/css/creative.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <style>
-        .teaching-section {
-            margin-bottom: 60px;
-            background: var(--surface-content);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 28px 32px;
-        }
-
-        .teaching-header {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            border-left: 5px solid var(--primary);
-            padding-left: 15px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .teaching-header i {
-            color: var(--primary);
-        }
-
-        .students-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-        }
-
-        /* Card Styling for teaching items */
-        .teaching-card {
-            background: none;
-            border: none;
-            border-bottom: 1px solid var(--border);
-            border-radius: 0;
-            padding: 18px 0;
-            margin-bottom: 0;
-            transition: none;
-        }
-
-        .students-grid .teaching-card {
-            border-bottom: none;
-            padding: 16px 20px;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .students-grid .teaching-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .teaching-card:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .teaching-card:hover {
-            transform: none;
-            box-shadow: none;
-        }
-
-        @media (max-width: 768px) {
-            .students-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .teaching-card h4 {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-            color: var(--text);
-        }
-
-        .teaching-card .role {
-            font-size: 0.95rem;
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .teaching-card .details {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-        }
-    </style>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.1/css/academicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Source+Code+Pro:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/academic.css">
 </head>
 
-<body>
-    <canvas id="crystal-bg"></canvas>
-    <div class="page-loader" id="pageLoader">
-        <div class="loader-spinner"></div>
-    </div>
+<body class="bg-light">
 
-
-    <nav class="navbar" id="navbar">
-        <a href="index.html"
-            style="font-family: 'Outfit'; font-weight: 700; font-size: 1.5rem; text-decoration: none; color: inherit;">NS.</a>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="cv.html">CV</a></li>
-            <li><a href="experience.html" class="active">Teaching</a></li>
-            <li><a href="presentations.html">Presentations</a></li>
-            <li><a href="software.html">Software</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-        </ul>
-        <button id="theme-toggle" class="social-btn" style="width: 35px; height: 35px;"><i
-                class="fas fa-sun"></i></button>
-        <button class="hamburger" id="hamburger">
-            <span></span><span></span><span></span>
-        </button>
+    <nav class="navbar navbar-expand-md navbar-light fixed-top shadow-sm">
+        <div class="container-lg">
+            <a class="navbar-brand" href="/"><strong>Nikhil Singh</strong></a>
+            <button class="navbar-toggler" style="font-size: 1em; padding: 0.5em;" type="button"
+                data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i> Menu
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="publications">Publications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cv">CV</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="experience">Teaching</a></li>
+                    <li class="nav-item"><a class="nav-link" href="presentations">Presentations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="software">Software</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery">Gallery</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <div class="section-container" style="padding-top: 100px;">
-        <h1 class="section-title">Teaching & Mentorship</h1>
+    <div class="container-lg">
+        <div class="row">
+            <div class="col-12 col-lg-10 mx-auto">
 
-        <!-- Mentorship Section -->
-        <div class="teaching-section" data-aos="fade-up">
-            <h2 class="teaching-header"><i class="fas fa-chalkboard-teacher"></i> Students I've Worked With</h2>
-
-            <div class="students-grid">
-                <div class="teaching-card">
-                    <h4>Ishita Ghosh</h4>
-                    <div class="role">M.Tech, IIT Delhi</div>
-                    <div class="details">MTech project student</div>
+                <!-- Masthead -->
+                <div class="pt-4 pb-2">
+                    <h1 class="mb-1">Teaching &amp; Mentorship</h1>
+                    <p class="text-muted mb-0">
+                        Guiding students through computational projects, and assisting undergraduate and
+                        postgraduate chemistry courses at IIT Delhi.
+                    </p>
                 </div>
 
-                <div class="teaching-card">
-                    <h4>Aditya Singh</h4>
-                    <div class="role">M.Sc., IIT Delhi</div>
-                    <div class="details">MSc thesis project (1 year)</div>
+                <!-- Mentorship -->
+                <div class="card border-0 shadow-sm bg-white mb-3">
+                    <div class="card-body p-4">
+                        <div class="cv-eyebrow">Students Mentored</div>
+
+                        <div class="mb-3">
+                            <div class="mono small text-muted mb-2">M.Tech · IIT Delhi</div>
+                            <ul class="roster">
+                                <li class="roster-col-first"><span class="roster-name">Ishita Ghosh</span><br>
+                                    <span class="roster-note">M.Tech project</span></li>
+                                <li><span class="roster-name">Neeraj Yadav</span><br>
+                                    <span class="roster-note">M.Tech thesis (1 year)</span></li>
+                                <li><span class="roster-name">Sameer Jaiswal</span><br>
+                                    <span class="roster-note">Cornerstone M.Tech. project</span></li>
+                                <li><span class="roster-name">Arya Kumar</span><br>
+                                    <span class="roster-note">Cornerstone M.Tech. project</span></li>
+                                <li><span class="roster-name">Sadiq Javed</span><br>
+                                    <span class="roster-note">Cornerstone M.Tech. project</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="mono small text-muted mb-2">M.Sc. · IIT Delhi</div>
+                            <ul class="roster">
+                                <li class="roster-col-first"><span class="roster-name">Aditya Singh</span><br>
+                                    <span class="roster-note">M.Sc. thesis (1 year)</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="mono small text-muted mb-2">B.Tech</div>
+                            <ul class="roster">
+                                <li class="roster-col-first"><span class="roster-name">Anushka</span> <span
+                                        class="roster-note">· IIT Delhi</span><br>
+                                    <span class="roster-note">B.Tech project</span></li>
+                                <li><span class="roster-name">Vidhi Agarwal</span> <span class="roster-note">· IIT
+                                        Delhi</span><br>
+                                    <span class="roster-note">B.Tech project (6 months)</span></li>
+                                <li><span class="roster-name">Aryaman</span><br>
+                                    <span class="roster-note">Short-term internship</span></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <div class="mono small text-muted mb-2">Interns</div>
+                            <ul class="roster">
+                                <li class="roster-col-first"><span class="roster-name">Harikrishnan S</span> <span
+                                        class="roster-note">· IISER Tirupati</span><br>
+                                    <span class="roster-note">Summer research internship (B.S.)</span></li>
+                                <li><span class="roster-name">Jitesh Kumar Arora</span><br>
+                                    <span class="roster-note">Research intern</span></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="teaching-card">
-                    <h4>Neeraj Yadav</h4>
-                    <div class="role">M.Tech, IIT Delhi</div>
-                    <div class="details">MTech thesis project (1 year)</div>
+                <!-- Teaching Assistantship -->
+                <div class="card border-0 shadow-sm bg-white mb-3">
+                    <div class="card-body p-4">
+                        <div class="cv-eyebrow">Teaching Assistantship · IIT Delhi</div>
+
+                        <div class="cv-entry">
+                            <div class="cv-entry-head">
+                                <span class="cv-entry-title">CML101 &nbsp;Introduction to Chemistry</span>
+                                <span class="cv-entry-date">2025 — 26 · Sem 2</span>
+                            </div>
+                            <div class="cv-entry-org">B.Tech core course</div>
+                        </div>
+
+                        <div class="cv-entry">
+                            <div class="cv-entry-head">
+                                <span class="cv-entry-title">CMP511 &nbsp;Physical Chemistry Laboratory</span>
+                                <span class="cv-entry-date">2025 — 26 · Sem 1</span>
+                            </div>
+                            <div class="cv-entry-org">M.Sc. laboratory</div>
+                        </div>
+
+                        <div class="cv-entry">
+                            <div class="cv-entry-head">
+                                <span class="cv-entry-title">CMP1000 &nbsp;Basic Chemistry Laboratory</span>
+                                <span class="cv-entry-date">2024 — 25 · Sem 2</span>
+                            </div>
+                            <div class="cv-entry-org">B.Tech laboratory</div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="teaching-card">
-                    <h4>Anushka</h4>
-                    <div class="role">B.Tech, IIT Delhi</div>
-                    <div class="details">BTech project student</div>
-                </div>
-
-                <div class="teaching-card">
-                    <h4>Vidhi Agarwal</h4>
-                    <div class="role">B.Tech, IIT Delhi</div>
-                    <div class="details">BTech project (6 months)</div>
-                </div>
-
-                <div class="teaching-card">
-                    <h4>Aryaman</h4>
-                    <div class="role">B.Tech</div>
-                    <div class="details">Short-term internship</div>
-                </div>
-
-                <div class="teaching-card">
-                    <h4>Jitesh Kumar Arora</h4>
-                    <div class="role">Research Intern</div>
-                </div>
-
-                <div class="teaching-card">
-                    <h4>Sameer Jaiswal</h4>
-                    <div class="role">M.Tech, IIT Delhi</div>
-                    <div class="details">Short Cornerstone M.Tech. Project</div>
-                </div>
-
-                <div class="teaching-card">
-                    <h4>Arya Kumar</h4>
-                    <div class="role">M.Tech, IIT Delhi</div>
-                    <div class="details">Short Cornerstone M.Tech. Project</div>
-                </div>
-
-                <div class="teaching-card">
-                    <h4>Sadiq Javed</h4>
-                    <div class="role">M.Tech, IIT Delhi</div>
-                    <div class="details">Short Cornerstone M.Tech. Project</div>
-                </div>
-
-                <div class="teaching-card">
-                    <h4>Harikrishnan S</h4>
-                    <div class="role">B.S. Student, IISER Tirupati</div>
-                    <div class="details">Short-term summer internship</div>
-                </div>
             </div>
         </div>
-
-        <!-- TAship Section -->
-        <div class="teaching-section" data-aos="fade-up">
-            <h2 class="teaching-header"><i class="fas fa-book-open"></i> Teaching Assistantship (IIT Delhi)</h2>
-
-            <div class="teaching-card">
-                <h4>CML101: Introduction to Chemistry</h4>
-                <div class="role">B.Tech, Semester 2 (2025-2026)</div>
-            </div>
-
-            <div class="teaching-card">
-                <h4>CMP511: M.Sc. Physical chemistry lab</h4>
-                <div class="role">M.Sc., Semester 1 (2025-2026)</div>
-            </div>
-
-            <div class="teaching-card">
-                <h4>CMP1000: B.Tech basic chemistry lab</h4>
-                <div class="role">B.Tech, Semester 2 (2025-2026)</div>
-            </div>
-        </div>
-
     </div>
 
-    <footer class="footer">
-        <div class="footer-links">
-            <a href="https://scholar.google.com/citations?user=HzuwXBMAAAAJ&hl=en" target="_blank"><i class="fas fa-graduation-cap"></i></a>
-            <a href="https://github.com/nikyadav002" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/nikhilsingh002" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://orcid.org/0009-0007-4990-8748" target="_blank"><i class="fab fa-orcid"></i></a>
-            <a href="https://x.com/nikyadav002" target="_blank"><i class="fab fa-x-twitter"></i></a>
+    <footer class="footer border-top py-2 mt-5 bg-white small">
+        <div class="container-lg">
+            <div class="row my-3">
+                <div class="col-6">
+                    <div class="text-muted"><i>Last updated: Jul 2026</i></div>
+                </div>
+                <div class="col-6">
+                    <div class="text-right text-muted">&copy; 2026 Nikhil Singh</div>
+                </div>
+            </div>
         </div>
-        <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 Nikhil Singh</p>
     </footer>
 
-    <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ once: true, offset: 50 });
-
-        const toggleBtn = document.getElementById('theme-toggle');
-        const icon = toggleBtn.querySelector('i');
-        let isDark = localStorage.getItem('theme') === 'dark';
-        function updateTheme() {
-            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-            icon.className = isDark ? 'fas fa-moon' : 'fas fa-sun';
-            const color = isDark ? '#ffffff' : '#2563eb';
-            if (window.pJSDom && window.pJSDom[0]) {
-                window.pJSDom[0].pJS.particles.color.value = color;
-                window.pJSDom[0].pJS.particles.line_linked.color = color;
-                window.pJSDom[0].pJS.fn.particlesRefresh();
-            }
-        }
-        toggleBtn.addEventListener('click', () => { isDark = !isDark; localStorage.setItem('theme', isDark ? 'dark' : 'light'); updateTheme(); });
-        updateTheme();
-
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); navLinks.classList.toggle('active'); });
-        navLinks.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { hamburger.classList.remove('active'); navLinks.classList.remove('active'); }); });
-
-        window.addEventListener('load', () => document.getElementById('pageLoader').classList.add('hidden'));
-        window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50));
-        const scrollTopBtn = document.getElementById('scrollTop');
-        window.addEventListener('scroll', () => scrollTopBtn.classList.toggle('visible', window.scrollY > 400));
-        scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    </script>
-    <script src="./assets/js/crystal-bg.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <script src="./assets/js/site.js"></script>
 </body>
 
 </html>

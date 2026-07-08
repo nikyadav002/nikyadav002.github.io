@@ -1,225 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Theme adapted from https://github.com/luost26/academic-homepage -->
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Nikhil Singh | Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Nikhil Singh</title>
     <meta name="description"
         content="Nikhil Singh - PhD Researcher at IIT Delhi specializing in computational materials science, halide perovskites, and machine learning for materials discovery.">
     <link rel="icon" type="image/svg+xml" href="./favicon.svg">
-    <link rel="stylesheet" href="./assets/css/creative.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.1/css/academicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Source+Code+Pro:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/academic.css">
 </head>
 
-<body>
-    <canvas id="crystal-bg"></canvas>
-    <div class="page-loader" id="pageLoader">
-        <div class="loader-spinner"></div>
-    </div>
+<body class="bg-light">
 
-    <nav class="navbar" id="navbar">
-        <a href="index.html"
-            style="font-family: 'Outfit'; font-weight: 700; font-size: 1.5rem; text-decoration: none; color: inherit;">NS.</a>
-        <ul class="nav-links">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="cv.html">CV</a></li>
-            <li><a href="experience.html">Teaching</a></li>
-            <li><a href="presentations.html">Presentations</a></li>
-            <li><a href="software.html">Software</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-        </ul>
-        <button id="theme-toggle" class="social-btn" style="width: 35px; height: 35px;">
-            <i class="fas fa-sun"></i>
-        </button>
-        <button class="hamburger" id="hamburger">
-            <span></span><span></span><span></span>
-        </button>
+    <nav class="navbar navbar-expand-md navbar-light fixed-top shadow-sm">
+        <div class="container-lg">
+            <a class="navbar-brand" href="/"><strong>Nikhil Singh</strong></a>
+            <button class="navbar-toggler" style="font-size: 1em; padding: 0.5em;" type="button"
+                data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i> Menu
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="publications">Publications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cv">CV</a></li>
+                    <li class="nav-item"><a class="nav-link" href="experience">Teaching</a></li>
+                    <li class="nav-item"><a class="nav-link" href="presentations">Presentations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="software">Software</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery">Gallery</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-text" data-aos="fade-right">
-                <h1>Nikhil Singh</h1>
-                <h3 style="font-size: 1.6rem; color: var(--text-muted); margin-bottom: 20px; font-weight: 400;">
-                    <span id="typing-text"></span>
-                </h3>
+    <div class="container-lg">
+        <div class="row">
 
-                <div class="bio-text" style="margin-bottom: 30px;">
-                    <p style="margin-bottom: 14px;">
-                        I am a PhD researcher in the <a href="https://chemistry.iitd.ac.in/" target="_blank"
-                            style="color: var(--primary); text-decoration: none; font-weight: 600;">Department of
-                            Chemistry</a> at <a href="https://home.iitd.ac.in/" target="_blank"
-                            style="color: var(--primary); text-decoration: none; font-weight: 600;">IIT Delhi</a>, working with <a href="https://sites.google.com/view/dibyajyoti-ghosh/home" target="_blank"
-                            style="color: var(--primary); text-decoration: none; font-weight: 600;">Prof. Dibyajyoti
-                            Ghosh</a> in computational materials chemistry.
-                    </p>
-                    <p style="margin-bottom: 14px;">
-                        My work centers on understanding charge-carrier behavior in soft semiconductors using a combination of <strong>first-principles methods</strong>, ab initio and machine-learning-accelerated molecular dynamics, and non-adiabatic molecular dynamics, and data-driven approaches. I am broadly interested in the influence of structure on charge carrier dynamics, defects, and excited-state phenomena, particularly in <strong>halide perovskites</strong> and <strong>chalcogenides</strong>.
-                    </p>
-                    <p>
-                        My research interests span hot-carrier physics, nonadiabatic processes, and interpretable machine learning for materials discovery.
-                    </p>
+            <!-- Left: sticky mini profile card -->
+            <div class="col-lg-3 col-md-4">
+                <div class="row sticky-top" style="top: 80px">
+                    <div class="col">
+                        <div class="card border-0 shadow-sm bg-white">
+                            <div class="card-body px-4 pt-4 pb-3">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="figure d-none d-md-block">
+                                            <img src="./images/profile.jpg" class="figure-img img-fluid rounded"
+                                                alt="Nikhil Singh">
+                                        </div>
+                                        <div class="mb-3 d-md-none text-center">
+                                            <img src="./images/profile.jpg" class="rounded-circle"
+                                                style="max-width: 50%;" alt="Nikhil Singh">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col text-center h4 mb-1">Nikhil Singh</div>
+                                </div>
+                                <div class="row small">
+                                    <div class="col text-center text-muted">
+                                        PhD Researcher<br>
+                                        Department of Chemistry<br>
+                                        IIT Delhi, New Delhi, India
+                                    </div>
+                                </div>
+                                <div class="row small mt-2">
+                                    <div class="col text-center">
+                                        <a class="email-text"
+                                            href="mailto:nikhil002.iitd@gmail.com">nikhil002.iitd<wbr>(at)gmail.com</a>
+                                    </div>
+                                </div>
+                                <div class="row pt-2">
+                                    <div class="col text-center h4">
+                                        <a class="px-1 no-break" target="_blank"
+                                            href="https://scholar.google.com/citations?user=HzuwXBMAAAAJ&hl=en"
+                                            title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+                                        <a class="px-1 no-break" target="_blank"
+                                            href="https://github.com/nikyadav002" title="GitHub"><i
+                                                class="fab fa-github"></i></a>
+                                        <a class="px-1 no-break" target="_blank"
+                                            href="https://www.linkedin.com/in/nikhilsingh002" title="LinkedIn"><i
+                                                class="fab fa-linkedin"></i></a>
+                                        <a class="px-1 no-break" target="_blank"
+                                            href="https://orcid.org/0009-0007-4990-8748" title="ORCID"><i
+                                                class="ai ai-orcid"></i></a>
+                                        <a class="px-1 no-break" target="_blank" href="https://x.com/nikyadav002"
+                                            title="X"><i class="fab fa-x-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="hero-card" data-aos="fade-left" style="align-self: flex-start; margin-top: 20px;">
-                <img src="./images/profile.jpg" alt="Nikhil Singh Profile">
-                <div class="social-icons-hero" style="justify-content: center; margin-top: 15px;">
-                    <a href="https://scholar.google.com/citations?user=HzuwXBMAAAAJ&hl=en" class="social-btn"
-                        style="width: auto; height: 38px; padding: 0 16px; border-radius: var(--radius-sm); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.01em;">Google Scholar</a>
-                    <a href="https://github.com/nikyadav002" class="social-btn"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/nikhilsingh002" class="social-btn"><i
-                            class="fab fa-linkedin-in"></i></a>
-                    <a href="https://orcid.org/0009-0007-4990-8748" class="social-btn"><i class="fab fa-orcid"></i></a>
-                    <a href="https://x.com/nikyadav002" class="social-btn"><i class="fab fa-x-twitter"></i></a>
+            <!-- Right: content -->
+            <div class="col-lg-9 col-md-8">
+
+                <div class="mt-3 d-md-none"></div>
+
+                <!-- About Me -->
+                <div class="row">
+                    <div class="col">
+                        <div class="card border-0 shadow-sm bg-white">
+                            <div class="card-body p-4">
+                                <div class="row px-3 pt-3">
+                                    <div class="col h3">About Me</div>
+                                </div>
+                                <div class="row p-3">
+                                    <div class="col">
+                                        <div class="text-profile-bio">
+                                            <p>
+                                                I am a PhD researcher in the <a
+                                                    href="https://chemistry.iitd.ac.in/" target="_blank">Department of
+                                                    Chemistry</a> at <a href="https://home.iitd.ac.in/"
+                                                    target="_blank">IIT Delhi</a>, working with <a
+                                                    href="https://sites.google.com/view/dibyajyoti-ghosh/home"
+                                                    target="_blank">Prof. Dibyajyoti Ghosh</a> in computational
+                                                materials chemistry.
+                                            </p>
+                                            <p>
+                                                My work centers on understanding charge-carrier behavior in soft
+                                                semiconductors using a combination of <strong>first-principles
+                                                    methods</strong>, ab initio and machine-learning-accelerated
+                                                molecular dynamics, and non-adiabatic molecular dynamics, and
+                                                data-driven approaches. I am broadly interested in the influence of
+                                                structure on charge carrier dynamics, defects, and excited-state
+                                                phenomena, particularly in <strong>halide perovskites</strong> and
+                                                <strong>chalcogenides</strong>.
+                                            </p>
+                                            <p class="mb-0">
+                                                My research interests span hot-carrier physics, nonadiabatic processes,
+                                                and interpretable machine learning for materials discovery.
+                                            </p>
+                                        </div>
+                                        <a class="mt-3 d-inline-block" href="cv"><i class="fas fa-file-alt"></i>
+                                            Curriculum Vitae</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education / Experience / Awards -->
+                <div class="row mt-3">
+                    <div class="col">
+                        <div class="card border-0 shadow-sm bg-white">
+                            <div class="card-body p-4">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mx-2 my-1">
+                                            <h6>Education</h6>
+                                            <ul class="list-unstyled mb-3">
+                                                <li class="mb-2">
+                                                    <div>PhD in Chemistry</div>
+                                                    <div class="small text-muted"><img class="edu-logo"
+                                                            src="./images/logos/iit-delhi.svg" alt="IIT Delhi logo"> IIT
+                                                        Delhi</div>
+                                                    <div class="small d-flex">
+                                                        <div>Computational Materials Chemistry</div>
+                                                        <div class="mt-auto ml-auto no-break"><em>2023 – Present</em>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="mb-2">
+                                                    <div>MSc in Chemistry</div>
+                                                    <div class="small text-muted"><img class="edu-logo"
+                                                            src="./images/logos/iit-jodhpur.svg" alt="IIT Jodhpur logo">
+                                                        IIT Jodhpur</div>
+                                                    <div class="small d-flex">
+                                                        <div>Organocatalysis</div>
+                                                        <div class="mt-auto ml-auto no-break"><em>2021 – 2023</em></div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>BSc</div>
+                                                    <div class="small text-muted">Indira Gandhi University, Haryana</div>
+                                                    <div class="small d-flex">
+                                                        <div class="ml-auto no-break"><em>2018 – 2021</em></div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mx-2 my-1">
+                                            <h6>Honors &amp; Awards</h6>
+                                            <ul class="list small pl-3 mb-1">
+                                                <li>
+                                                    <div class="d-flex">
+                                                        <div>Kawazoe Best Poster Award, ICMG-IV</div>
+                                                        <div class="ml-auto mt-auto no-break"><em>2026</em></div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="d-flex">
+                                                        <div>Young Researcher Award, E-MRS Fall</div>
+                                                        <div class="ml-auto mt-auto no-break"><em>2025</em></div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="d-flex">
+                                                        <div>Silver Award, Abstract Writing, IIT Delhi</div>
+                                                        <div class="ml-auto mt-auto no-break"><em>2024</em></div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="d-flex">
+                                                        <div>Best Poster Award, In-house Symposium, IIT Delhi</div>
+                                                        <div class="ml-auto mt-auto no-break"><em>2023</em></div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News -->
+                <div class="my-3 bg-white shadow-sm rounded-xl">
+                    <h6 class="p-3 mb-0 border-bottom border-gray"><i class="fas fa-rss"></i> News</h6>
+                    <div class="px-3 pb-1 small">
+                        <div class="media py-1">
+                            <div class="mr-3 text-muted my-1">2026</div>
+                            <div class="media-body">
+                                <div class="my-1 d-flex">
+                                    <div>Received the Kawazoe Best Poster Award at ICMG-IV 2026.</div>
+                                    <div class="ml-auto mt-auto text-muted no-break"><i>Feb</i></div>
+                                </div>
+                                <div class="my-1 d-flex">
+                                    <div>Paper on data-driven discovery of quaternary chalcogenide photovoltaics
+                                        accepted in <i>Phys. Rev. Applied</i>.</div>
+                                    <div class="ml-auto mt-auto text-muted no-break"><i>Jan</i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media py-1 border-top border-gray">
+                            <div class="mr-3 text-muted my-1">2025</div>
+                            <div class="media-body">
+                                <div class="my-1 d-flex">
+                                    <div>Won the Young Researcher Award at the E-MRS 2025 Fall Meeting, Warsaw.</div>
+                                    <div class="ml-auto mt-auto text-muted no-break"><i>Sep</i></div>
+                                </div>
+                                <div class="my-1 d-flex">
+                                    <div>Hot-carrier relaxation study published in <i>Chemistry of Materials</i>.</div>
+                                    <div class="ml-auto mt-auto text-muted no-break"><i>Aug</i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Selected Publications -->
+                <div class="my-3 p-0 bg-white shadow-sm rounded-xl">
+                    <h6 class="border-bottom border-gray p-3 mb-0">
+                        <i class="fas fa-star"></i> Selected Publications
+                        <a href="publications">(view all <i class="fas fa-angle-double-right"></i>)</a>
+                    </h6>
+
+                    <div class="row no-gutters border-bottom border-gray">
+                        <div class="col-md-3 col-xl-2 mb-md-0 p-md-3 p-3">
+                            <div class="rounded-sm d-flex align-items-center justify-content-center text-white"
+                                style="background: linear-gradient(135deg,#2450a5,#5b8def); aspect-ratio: 3/2; font-size: 0.82rem; line-height:1.2; text-align:center;">
+                                Phys. Rev.<br>Applied</div>
+                        </div>
+                        <div class="col-md-9 col-xl-10 p-3 pl-md-0">
+                            <h5 class="mt-0 mb-1 font-weight-normal"><a class="text-body"
+                                    href="https://doi.org/10.1103/r77p-wl3l" target="_blank">Data-driven Discovery of
+                                    Novel High-performance Quaternary Chalcogenide Photovoltaics</a></h5>
+                            <p class="mt-0 mb-0 small"><strong>N. Singh</strong><sup>†</sup>, M. Ubaid<sup>†</sup>, P. K.
+                                Nayak, J. He, D. Ghosh, C. Wolverton, K. Pal</p>
+                            <p class="mt-0 mb-0 small"><i>Physical Review Applied</i>, 2026</p>
+                            <p class="small pb-0 mb-0 text-muted abstract-links">
+                                <a target="_blank" href="https://doi.org/10.1103/r77p-wl3l">[Paper]</a>
+                                <a target="_blank" href="https://doi.org/10.48550/arXiv.2507.15430">[arXiv]</a>
+                                <span class="text-muted">† equal contribution</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row no-gutters border-bottom border-gray">
+                        <div class="col-md-3 col-xl-2 mb-md-0 p-md-3 p-3">
+                            <div class="rounded-sm d-flex align-items-center justify-content-center text-white"
+                                style="background: linear-gradient(135deg,#2450a5,#5b8def); aspect-ratio: 3/2; font-size: 0.82rem; line-height:1.2; text-align:center;">
+                                Chem.<br>Mater.</div>
+                        </div>
+                        <div class="col-md-9 col-xl-10 p-3 pl-md-0">
+                            <h5 class="mt-0 mb-1 font-weight-normal"><a class="text-body"
+                                    href="https://doi.org/10.1021/acs.chemmater.5c01315" target="_blank">Hot Carrier
+                                    Relaxation in Halide Double Perovskites: Insights from Ab Initio Models and
+                                    Structure-Informed Machine Learning</a></h5>
+                            <p class="mt-0 mb-0 small"><strong>N. Singh</strong>, D. Ghosh</p>
+                            <p class="mt-0 mb-0 small"><i>Chemistry of Materials</i>, 37(17), 6697–6707, 2025</p>
+                            <p class="small pb-0 mb-0 text-muted abstract-links">
+                                <a target="_blank" href="https://doi.org/10.1021/acs.chemmater.5c01315">[Paper]</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row no-gutters">
+                        <div class="col-md-3 col-xl-2 mb-md-0 p-md-3 p-3">
+                            <div class="rounded-sm d-flex align-items-center justify-content-center text-white"
+                                style="background: linear-gradient(135deg,#2450a5,#5b8def); aspect-ratio: 3/2; font-size: 0.82rem; line-height:1.2; text-align:center;">
+                                J. Mater.<br>Chem. A</div>
+                        </div>
+                        <div class="col-md-9 col-xl-10 p-3 pl-md-0">
+                            <h5 class="mt-0 mb-1 font-weight-normal"><a class="text-body"
+                                    href="https://pubs.rsc.org/en/content/articlehtml/2008/jb/d4ta08867k"
+                                    target="_blank">High-throughput and data-driven search for stable optoelectronic
+                                    AMSe<sub>3</sub> materials</a></h5>
+                            <p class="mt-0 mb-0 small"><strong>N. Singh</strong><sup>†</sup>, K. Samanta<sup>†</sup>, S.
+                                K. Maharana, K. Pal, S. Tretiak, A. Talapatra, D. Ghosh</p>
+                            <p class="mt-0 mb-0 small"><i>Journal of Materials Chemistry A</i>, 13(13), 9192–9210, 2025
+                            </p>
+                            <p class="small pb-0 mb-0 text-muted abstract-links">
+                                <a target="_blank"
+                                    href="https://pubs.rsc.org/en/content/articlehtml/2008/jb/d4ta08867k">[Paper]</a>
+                                <span class="text-muted">† equal contribution</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <h6 class="d-block p-3 mt-0 text-right">
+                        <a href="publications">All publications <i class="fas fa-angle-double-right"></i></a>
+                    </h6>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer border-top py-2 mt-5 bg-white small">
+        <div class="container-lg">
+            <div class="row my-3">
+                <div class="col-6">
+                    <div class="text-muted"><i>Last updated: Jul 2026</i></div>
+                </div>
+                <div class="col-6">
+                    <div class="text-right text-muted">&copy; 2026 Nikhil Singh</div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section style="max-width: 700px; margin: 60px auto 0; padding: 0 20px;">
-        <h2 style="font-size: 1.1rem; font-weight: 600; color: var(--text-muted); margin-bottom: 16px; letter-spacing: 0.04em; text-transform: uppercase;">Latest on LinkedIn</h2>
-        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm);">
-            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7374341397983899648"
-                height="480" width="100%" frameborder="0" allowfullscreen=""
-                style="display: block;"></iframe>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div data-aos="fade-up" style="display: flex; align-items: center; justify-content: center; gap: 60px; margin-bottom: 30px; flex-wrap: wrap;">
-            <a href="https://info.flagcounter.com/1O1t" target="_blank">
-                <img src="https://s01.flagcounter.com/count2/1O1t/bg_FFFFFF/txt_000000/border_CCCCCC/columns_4/maxflags_12/viewers_0/labels_0/pageviews_0/flags_0/percent_0/"
-                    alt="Flag Counter" border="0" style="border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
-            </a>
-            <div style="text-align: center;">
-                <h3 style="margin-bottom: 10px; font-size: 1.1rem; letter-spacing: 1px; text-transform: uppercase;">Contact Me</h3>
-                <a href="mailto:nikhil002.iitd@gmail.com" style="color: inherit; text-decoration: none; font-size: 0.95rem;">nikhil002.iitd@gmail.com</a>
-            </div>
-        </div>
-        <div class="footer-links" data-aos="fade-up" data-aos-delay="100">
-            <a href="https://scholar.google.com/citations?user=HzuwXBMAAAAJ&hl=en" target="_blank"><i
-                    class="fas fa-graduation-cap"></i></a>
-            <a href="https://github.com/nikyadav002" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/nikhilsingh002" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://orcid.org/0009-0007-4990-8748" target="_blank"><i class="fab fa-orcid"></i></a>
-            <a href="https://x.com/nikyadav002" target="_blank"><i class="fab fa-x-twitter"></i></a>
         </div>
     </footer>
 
-    <!-- Scroll to Top -->
-    <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    <script>
-        // Page Loader
-        window.addEventListener('load', () => {
-            document.getElementById('pageLoader').classList.add('hidden');
-        });
-
-        new Typed('#typing-text', {
-            strings: ['PhD Researcher, IIT Delhi', 'Perovskites & Chalcogenides', 'DFT · MLMD · Data-Driven'],
-            typeSpeed: 55,
-            backSpeed: 35,
-            backDelay: 2200,
-            loop: true,
-            cursorChar: '|'
-        });
-        AOS.init({ once: true, offset: 50 });
-
-        // Theme Toggle
-        const toggleBtn = document.getElementById('theme-toggle');
-        const icon = toggleBtn.querySelector('i');
-        let isDark = localStorage.getItem('theme') === 'dark';
-        function updateTheme() {
-            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-            icon.className = isDark ? 'fas fa-moon' : 'fas fa-sun';
-            const color = isDark ? '#ffffff' : '#2563eb';
-            if (window.pJSDom && window.pJSDom[0]) {
-                window.pJSDom[0].pJS.particles.color.value = color;
-                window.pJSDom[0].pJS.particles.line_linked.color = color;
-                window.pJSDom[0].pJS.fn.particlesRefresh();
-            }
-        }
-        toggleBtn.addEventListener('click', () => { isDark = !isDark; localStorage.setItem('theme', isDark ? 'dark' : 'light'); updateTheme(); });
-        updateTheme();
-
-        // Hamburger Menu
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // Navbar shrink on scroll
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Scroll to Top
-        const scrollTopBtn = document.getElementById('scrollTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                scrollTopBtn.classList.add('visible');
-            } else {
-                scrollTopBtn.classList.remove('visible');
-            }
-        });
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Animated Counter
-        function animateCounters() {
-            const counters = document.querySelectorAll('.stat-number');
-            counters.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-count'));
-                const duration = 2000;
-                const start = 0;
-                const startTime = performance.now();
-
-                function update(currentTime) {
-                    const elapsed = currentTime - startTime;
-                    const progress = Math.min(elapsed / duration, 1);
-                    const eased = 1 - Math.pow(1 - progress, 3);
-                    counter.textContent = Math.floor(eased * target);
-                    if (progress < 1) requestAnimationFrame(update);
-                    else counter.textContent = target + '+';
-                }
-                requestAnimationFrame(update);
-            });
-        }
-
-        // Trigger counters when in view
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounters();
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        const statsSection = document.querySelector('.stats-section');
-        if (statsSection) statsObserver.observe(statsSection);
-    </script>
-    <script src="./assets/js/crystal-bg.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <script src="./assets/js/site.js"></script>
 </body>
 
 </html>

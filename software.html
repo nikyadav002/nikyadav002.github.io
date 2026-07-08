@@ -1,153 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Theme adapted from https://github.com/luost26/academic-homepage -->
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Nikhil Singh | Software</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Software - Nikhil Singh</title>
     <link rel="icon" type="image/svg+xml" href="./favicon.svg">
-    <link rel="stylesheet" href="./assets/css/creative.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.1/css/academicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Source+Code+Pro:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/academic.css">
 </head>
 
-<body>
-    <canvas id="crystal-bg"></canvas>
-    <div class="page-loader" id="pageLoader">
-        <div class="loader-spinner"></div>
-    </div>
+<body class="bg-light">
 
-
-    <nav class="navbar" id="navbar">
-        <a href="index.html"
-            style="font-family: 'Outfit'; font-weight: 700; font-size: 1.5rem; text-decoration: none; color: inherit;">NS.</a>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="cv.html">CV</a></li>
-            <li><a href="experience.html">Teaching</a></li>
-            <li><a href="presentations.html">Presentations</a></li>
-            <li><a href="software.html" class="active">Software</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-        </ul>
-        <button id="theme-toggle" class="social-btn" style="width: 35px; height: 35px;"><i
-                class="fas fa-sun"></i></button>
-        <button class="hamburger" id="hamburger">
-            <span></span><span></span><span></span>
-        </button>
+    <nav class="navbar navbar-expand-md navbar-light fixed-top shadow-sm">
+        <div class="container-lg">
+            <a class="navbar-brand" href="/"><strong>Nikhil Singh</strong></a>
+            <button class="navbar-toggler" style="font-size: 1em; padding: 0.5em;" type="button"
+                data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i> Menu
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="publications">Publications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cv">CV</a></li>
+                    <li class="nav-item"><a class="nav-link" href="experience">Teaching</a></li>
+                    <li class="nav-item"><a class="nav-link" href="presentations">Presentations</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="software">Software</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery">Gallery</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <div class="section-container" style="padding-top: 100px;">
-        <h1 class="section-title">Software Projects</h1>
-        <div style="background: var(--surface-content); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-top: 40px;" data-aos="fade-up">
-        <div style="display: flex; justify-content: center;" data-aos="flip-up">
-            <div class="terminal-card" style="max-width: 800px; width: 100%;">
-                <div class="terminal-header">
-                    <div class="window-btn btn-red"></div>
-                    <div class="window-btn btn-yellow"></div>
-                    <div class="window-btn btn-green"></div>
-                    <div style="margin-left: 10px; font-size: 0.8rem; color: #888;">~/projects/valyte</div>
-                </div>
-                <div class="terminal-body">
-                    <div class="cmd-line">
-                        <span class="cmd-prompt">user@nikhil:~$</span>
-                        <span class="cmd-text">./valyte --info</span>
-                    </div>
-                    <div class="output">
-                        <p>> <strong>Valyte</strong> v1.0.0</p>
-                        <p>> A comprehensive CLI tool for VASP workflows.</p>
-                        <p>> Features: Pre-processing, Post-processing, Publication-quality plots.</p>
-                        <p>> Status: <span style="color: #27c93f;">Active</span></p>
-                        <br>
-                        <p>Check it out at: <a href="https://github.com/nikyadav002/Valyte-Project"
-                                style="color: #3b82f6;">github.com/nikyadav002/Valyte-Project</a></p>
-                    </div>
-                    <div class="cmd-line" style="margin-top: 15px;">
-                        <span class="cmd-prompt">user@nikhil:~$</span>
-                        <span class="cmd-text blink">_</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="container-lg">
+        <div class="row">
+            <div class="col-12 col-lg-10 mx-auto">
 
-        <div style="display: flex; justify-content: center; margin-top: 30px;" data-aos="flip-up" data-aos-delay="200">
-            <div class="terminal-card" style="max-width: 800px; width: 100%;">
-                <div class="terminal-header">
-                    <div class="window-btn btn-red"></div>
-                    <div class="window-btn btn-yellow"></div>
-                    <div class="window-btn btn-green"></div>
-                    <div style="margin-left: 10px; font-size: 0.8rem; color: #888;">~/projects/crystyte</div>
-                </div>
-                <div class="terminal-body">
-                    <div class="cmd-line">
-                        <span class="cmd-prompt">user@nikhil:~$</span>
-                        <span class="cmd-text">./crystyte --info</span>
-                    </div>
-                    <div class="output">
-                        <p>> <strong>Crystyte</strong> v1.0.0</p>
-                        <p>> A web-based crystal structure visualizer.</p>
-                        <p>> Features: Interactive 3D visualization, CIF/POSCAR file support, Unit cell rendering.</p>
-                        <p>> Status: <span style="color: #27c93f;">Active</span></p>
-                        <br>
-                        <p>Check it out at: <a href="https://github.com/nikyadav002/Crystyte"
-                                style="color: #3b82f6;">github.com/nikyadav002/Crystyte</a></p>
-                    </div>
-                    <div class="cmd-line" style="margin-top: 15px;">
-                        <span class="cmd-prompt">user@nikhil:~$</span>
-                        <span class="cmd-text blink">_</span>
+                <h1 class="pt-4 mb-4">Software</h1>
+
+                <div class="card border-0 shadow-sm bg-white mb-3">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start">
+                            <div class="mr-3 text-primary" style="font-size: 1.8rem;"><i class="fas fa-terminal"></i>
+                            </div>
+                            <div>
+                                <div class="d-flex flex-wrap align-items-baseline">
+                                    <h5 class="mb-0 mr-2">Valyte</h5>
+                                    <span class="badge badge-success">Active</span>
+                                    <span class="small text-muted ml-2">v1.0.0</span>
+                                </div>
+                                <p class="mt-2 mb-2">A comprehensive CLI tool for VASP workflows — pre-processing,
+                                    post-processing, and publication-quality plots.</p>
+                                <a class="btn btn-sm btn-outline-dark"
+                                    href="https://github.com/nikyadav002/Valyte-Project" target="_blank"><i
+                                        class="fab fa-github"></i> nikyadav002/Valyte-Project</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <div class="card border-0 shadow-sm bg-white mb-3">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start">
+                            <div class="mr-3 text-primary" style="font-size: 1.8rem;"><i class="fas fa-cube"></i></div>
+                            <div>
+                                <div class="d-flex flex-wrap align-items-baseline">
+                                    <h5 class="mb-0 mr-2">Crystyte</h5>
+                                    <span class="badge badge-success">Active</span>
+                                    <span class="small text-muted ml-2">v1.0.0</span>
+                                </div>
+                                <p class="mt-2 mb-2">A web-based crystal structure visualizer with interactive 3D
+                                    visualization, CIF/POSCAR file support, and unit-cell rendering.</p>
+                                <a class="btn btn-sm btn-outline-dark" href="https://github.com/nikyadav002/Crystyte"
+                                    target="_blank"><i class="fab fa-github"></i> nikyadav002/Crystyte</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-        </div>
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="footer-links">
-            <a href="https://scholar.google.com/citations?user=HzuwXBMAAAAJ&hl=en" target="_blank"><i class="fas fa-graduation-cap"></i></a>
-            <a href="https://github.com/nikyadav002" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/nikhilsingh002" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://orcid.org/0009-0007-4990-8748" target="_blank"><i class="fab fa-orcid"></i></a>
-            <a href="https://x.com/nikyadav002" target="_blank"><i class="fab fa-x-twitter"></i></a>
+    <footer class="footer border-top py-2 mt-5 bg-white small">
+        <div class="container-lg">
+            <div class="row my-3">
+                <div class="col-6">
+                    <div class="text-muted"><i>Last updated: Jul 2026</i></div>
+                </div>
+                <div class="col-6">
+                    <div class="text-right text-muted">&copy; 2026 Nikhil Singh</div>
+                </div>
+            </div>
         </div>
-        <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 Nikhil Singh</p>
     </footer>
 
-    <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ once: true, offset: 50 });
-
-        const toggleBtn = document.getElementById('theme-toggle');
-        const icon = toggleBtn.querySelector('i');
-        let isDark = localStorage.getItem('theme') === 'dark';
-        function updateTheme() {
-            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-            icon.className = isDark ? 'fas fa-moon' : 'fas fa-sun';
-            const color = isDark ? '#ffffff' : '#2563eb';
-            if (window.pJSDom && window.pJSDom[0]) {
-                window.pJSDom[0].pJS.particles.color.value = color;
-                window.pJSDom[0].pJS.particles.line_linked.color = color;
-                window.pJSDom[0].pJS.fn.particlesRefresh();
-            }
-        }
-        toggleBtn.addEventListener('click', () => { isDark = !isDark; localStorage.setItem('theme', isDark ? 'dark' : 'light'); updateTheme(); });
-        updateTheme();
-
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); navLinks.classList.toggle('active'); });
-        navLinks.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { hamburger.classList.remove('active'); navLinks.classList.remove('active'); }); });
-
-        window.addEventListener('load', () => document.getElementById('pageLoader').classList.add('hidden'));
-        window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50));
-        const scrollTopBtn = document.getElementById('scrollTop');
-        window.addEventListener('scroll', () => scrollTopBtn.classList.toggle('visible', window.scrollY > 400));
-        scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    </script>
-    <script src="./assets/js/crystal-bg.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <script src="./assets/js/site.js"></script>
 </body>
 
 </html>

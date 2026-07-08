@@ -1,439 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Theme adapted from https://github.com/luost26/academic-homepage -->
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Nikhil Singh | CV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>CV - Nikhil Singh</title>
     <link rel="icon" type="image/svg+xml" href="./favicon.svg">
-    <link rel="stylesheet" href="./assets/css/creative.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        .cv-section {
-            margin-bottom: 60px;
-        }
-
-        .cv-section-header {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            border-left: 5px solid var(--primary);
-            padding-left: 15px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .cv-section-header i {
-            color: var(--primary);
-        }
-
-        /* Timeline Styling */
-        .cv-timeline {
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .cv-timeline::before {
-            content: '';
-            position: absolute;
-            left: 8px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, var(--primary), transparent);
-        }
-
-        .cv-timeline-item {
-            position: relative;
-            margin-bottom: 30px;
-            background: var(--surface-content);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 20px 25px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .cv-timeline-item:hover {
-            transform: translateX(8px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .cv-timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -26px;
-            top: 25px;
-            width: 12px;
-            height: 12px;
-            background: var(--primary);
-            border-radius: 50%;
-            box-shadow: 0 0 0 4px rgba(26, 86, 219, 0.2);
-        }
-
-        .cv-timeline-item h4 {
-            font-size: 1.3rem;
-            margin-bottom: 5px;
-            color: var(--primary);
-        }
-
-        .cv-timeline-item .institution {
-            font-weight: 600;
-            margin-bottom: 3px;
-        }
-
-        .cv-timeline-item .date {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-        }
-
-        .cv-timeline-item .description {
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .skill-category {
-            background: var(--surface-content);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 25px;
-            transition: transform 0.3s ease;
-        }
-
-        .skill-category:hover {
-            transform: translateY(-5px);
-        }
-
-        .skill-category h4 {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .skill-tag {
-            background: rgba(26, 86, 219, 0.10);
-            color: var(--primary);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: all 0.2s ease;
-        }
-
-        .skill-tag:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* Awards */
-        .awards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 20px;
-        }
-
-        .award-card {
-            background: var(--surface-content);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 25px;
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .award-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .award-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #fbbf24, #f59e0b);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .award-icon i {
-            color: white;
-            font-size: 1.4rem;
-        }
-
-        .award-content h4 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-
-        .award-content .year {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-        }
-
-        .award-content p {
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-    </style>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.1/css/academicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Source+Code+Pro:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/academic.css">
 </head>
 
-<body>
-    <canvas id="crystal-bg"></canvas>
-    <div class="page-loader" id="pageLoader">
-        <div class="loader-spinner"></div>
-    </div>
+<body class="bg-light">
 
-
-    <nav class="navbar" id="navbar">
-        <a href="index.html"
-            style="font-family: 'Outfit'; font-weight: 700; font-size: 1.5rem; text-decoration: none; color: inherit;">NS.</a>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="cv.html" class="active">CV</a></li>
-            <li><a href="experience.html">Teaching</a></li>
-            <li><a href="presentations.html">Presentations</a></li>
-            <li><a href="software.html">Software</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-        </ul>
-        <button id="theme-toggle" class="social-btn" style="width: 35px; height: 35px;"><i
-                class="fas fa-sun"></i></button>
-        <button class="hamburger" id="hamburger">
-            <span></span><span></span><span></span>
-        </button>
+    <nav class="navbar navbar-expand-md navbar-light fixed-top shadow-sm">
+        <div class="container-lg">
+            <a class="navbar-brand" href="/"><strong>Nikhil Singh</strong></a>
+            <button class="navbar-toggler" style="font-size: 1em; padding: 0.5em;" type="button"
+                data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i> Menu
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="publications">Publications</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="cv">CV</a></li>
+                    <li class="nav-item"><a class="nav-link" href="experience">Teaching</a></li>
+                    <li class="nav-item"><a class="nav-link" href="presentations">Presentations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="software">Software</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery">Gallery</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <div class="section-container" style="padding-top: 100px;">
-        <h1 class="section-title">Curriculum Vitae</h1>
+    <div class="container-lg">
+        <div class="row">
+            <div class="col-12 col-lg-10 mx-auto">
 
-        <!-- About -->
-        <div class="cv-section" data-aos="fade-up">
-            <h2 class="cv-section-header"><i class="fas fa-user"></i> About</h2>
-            <div
-                style="background: var(--surface-content); border: 1px solid var(--border); border-radius: 12px; padding: 25px; font-size: 1.05rem; line-height: 1.75;">
-                I'm a PhD student at IIT Delhi working in computational materials science, using <strong>first-principles methods, molecular dynamics, and machine learning</strong> to study soft semiconductors at the atomic level. My research broadly examines how structure shapes carrier dynamics, defects, and excited-state processes, with a wider interest in data-driven materials discovery.
-            </div>
-        </div>
-
-        <!-- Education -->
-        <div class="cv-section" data-aos="fade-up">
-            <h2 class="cv-section-header"><i class="fas fa-graduation-cap"></i> Education</h2>
-            <div class="cv-timeline">
-                <div class="cv-timeline-item">
-                    <h4>PhD in Chemistry</h4>
-                    <p class="institution">Indian Institute of Technology, Delhi</p>
-                    <p class="date">2023 – Present</p>
-                    <p class="description"><strong>Supervisor:</strong> Prof. Dibyajyoti
-                        Ghosh<br><strong>Focus:</strong> Computational Materials Designing for Energy Applications</p>
-                </div>
-                <div class="cv-timeline-item">
-                    <h4>MSc in Chemistry</h4>
-                    <p class="institution">Indian Institute of Technology, Jodhpur</p>
-                    <p class="date">2021 – 2023</p>
-                    <p class="description"><strong>Supervisor:</strong> Dr. Rakesh Kumar
-                        Sharma<br><strong>Thesis:</strong> "Chiral Calix[4]arene appended organocatalysts for asymmetric
-                        Strecker Reaction"</p>
-                </div>
-                <div class="cv-timeline-item">
-                    <h4>B.Sc.</h4>
-                    <p class="institution">Kishan Lal Public College, Indira Gandhi University, Haryana</p>
-                    <p class="date">2018 – 2021</p>
-                    <p class="description">Graduated with distinction</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Research Experience -->
-        <div class="cv-section" data-aos="fade-up">
-            <h2 class="cv-section-header"><i class="fas fa-flask"></i> Research Experience</h2>
-            <div class="cv-timeline">
-                <div class="cv-timeline-item">
-                    <h4>PhD Research</h4>
-                    <p class="institution">IIT Delhi | Prof. Dibyajyoti Ghosh</p>
-                    <p class="date">2023 – Present</p>
-                    <p class="description">
-                        Investigating charge-carrier dynamics, defects, and excited-state processes in halide
-                        perovskites and chalcogenides using first-principles methods and machine learning. Developing
-                        high-throughput computational pipelines for materials discovery.
+                <!-- Masthead -->
+                <div class="pt-4 pb-2">
+                    <h1 class="mb-1">Curriculum Vitae</h1>
+                    <p class="text-muted mb-0">
+                        Computational materials chemist studying charge-carrier behaviour in soft semiconductors
+                        with first-principles methods, molecular dynamics, and machine learning.
+                    </p>
+                    <p class="small mono mt-2 mb-0">
+                        <a href="mailto:nikhil002.iitd@gmail.com">nikhil002.iitd(at)gmail.com</a>
+                        &nbsp;·&nbsp; IIT Delhi, New Delhi, India
+                        &nbsp;·&nbsp; <a href="https://scholar.google.com/citations?user=HzuwXBMAAAAJ&hl=en"
+                            target="_blank">Google Scholar</a>
+                        &nbsp;·&nbsp; <a href="https://orcid.org/0009-0007-4990-8748" target="_blank">ORCID</a>
                     </p>
                 </div>
-                <div class="cv-timeline-item">
-                    <h4>Master's Research</h4>
-                    <p class="institution">IIT Jodhpur | Dr. Rakesh Kumar Sharma</p>
-                    <p class="date">July 2022 – May 2023</p>
-                    <p class="description">
-                        Designed and synthesized chiral organocatalysts for asymmetric synthesis.
-                    </p>
-                </div>
-            </div>
-        </div>
 
-        <!-- Skills -->
-        <div class="cv-section" data-aos="fade-up">
-            <h2 class="cv-section-header"><i class="fas fa-code"></i> Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h4><i class="fas fa-atom"></i> Computational Methods</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">DFT</span>
-                        <span class="skill-tag">TDDFT</span>
-                        <span class="skill-tag">Ab-initio MD</span>
-                        <span class="skill-tag">NAMD</span>
-                        <span class="skill-tag">GW/BSE</span>
-                        <span class="skill-tag">Phonon Calculations</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h4><i class="fas fa-laptop-code"></i> Software & Codes</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">VASP</span>
-                        <span class="skill-tag">Gaussian</span>
-                        <span class="skill-tag">Quantum ESPRESSO</span>
-                        <span class="skill-tag">LAMMPS</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h4><i class="fas fa-brain"></i> Machine Learning</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Random Forest</span>
-                        <span class="skill-tag">XGBoost</span>
-                        <span class="skill-tag">SVM</span>
-                        <span class="skill-tag">ANN</span>
-                        <span class="skill-tag">GNN</span>
-                        <span class="skill-tag">SHAP</span>
-                        <span class="skill-tag">Feature Engineering</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h4><i class="fas fa-terminal"></i> Programming</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Bash</span>
-                        <span class="skill-tag">MATLAB</span>
-                        <span class="skill-tag">Linux/HPC</span>
-                        <span class="skill-tag">Git</span>
+                <!-- Education -->
+                <div class="card border-0 shadow-sm bg-white mb-3">
+                    <div class="card-body p-4">
+                        <div class="cv-eyebrow">Education</div>
+
+                        <div class="cv-entry">
+                            <div class="cv-entry-head">
+                                <span class="cv-entry-title">PhD, Chemistry</span>
+                                <span class="cv-entry-date">2023 — present</span>
+                            </div>
+                            <div class="cv-entry-org"><img class="edu-logo" src="./images/logos/iit-delhi.svg"
+                                    alt="IIT Delhi logo">Indian Institute of Technology Delhi</div>
+                            <div class="cv-entry-note">Advised by Prof. Dibyajyoti Ghosh. Computational materials design
+                                for energy applications.</div>
+                        </div>
+
+                        <div class="cv-entry">
+                            <div class="cv-entry-head">
+                                <span class="cv-entry-title">MSc, Chemistry</span>
+                                <span class="cv-entry-date">2021 — 2023</span>
+                            </div>
+                            <div class="cv-entry-org"><img class="edu-logo" src="./images/logos/iit-jodhpur.svg"
+                                    alt="IIT Jodhpur logo">Indian Institute of Technology Jodhpur</div>
+                            <div class="cv-entry-note">Advised by Dr. Rakesh Kumar Sharma. Thesis: chiral
+                                calix[4]arene-appended organocatalysts for the asymmetric Strecker reaction.</div>
+                        </div>
+
+                        <div class="cv-entry">
+                            <div class="cv-entry-head">
+                                <span class="cv-entry-title">BSc</span>
+                                <span class="cv-entry-date">2018 — 2021</span>
+                            </div>
+                            <div class="cv-entry-org">Kishan Lal Public College, Indira Gandhi University, Haryana</div>
+                            <div class="cv-entry-note">Graduated with distinction.</div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <h4><i class="fas fa-cube"></i> Materials Informatics</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Pymatgen</span>
-                        <span class="skill-tag">ASE</span>
-                        <span class="skill-tag">Materials Project API</span>
-                        <span class="skill-tag">High-throughput Screening</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+                <!-- Research Experience -->
+                <div class="card border-0 shadow-sm bg-white mb-3">
+                    <div class="card-body p-4">
+                        <div class="cv-eyebrow">Research Experience</div>
 
-        <!-- Awards & Honors -->
-        <div class="cv-section" data-aos="fade-up">
-            <h2 class="cv-section-header"><i class="fas fa-trophy"></i> Awards & Honors</h2>
-            <div class="awards-grid">
-                <div class="award-card">
-                    <div class="award-icon"><i class="fas fa-award"></i></div>
-                    <div class="award-content">
-                        <h4>Kawazoe Best Poster Award</h4>
-                        <p class="year">ICMG-IV 2026</p>
-                        <p>4th International Conference on Materials Genome.</p>
+                        <div class="cv-entry">
+                            <div class="cv-entry-head">
+                                <span class="cv-entry-title">Doctoral Researcher</span>
+                                <span class="cv-entry-date">2023 — present</span>
+                            </div>
+                            <div class="cv-entry-org">Guide: Prof. Dibyajyoti Ghosh &middot; IIT Delhi</div>
+                            <div class="cv-entry-note">Charge-carrier dynamics, defects, and excited-state processes in
+                                halide perovskites and chalcogenides from first principles. Building
+                                machine-learning-accelerated and high-throughput pipelines for materials discovery.</div>
+                        </div>
+
+                        <div class="cv-entry">
+                            <div class="cv-entry-head">
+                                <span class="cv-entry-title">Master's Researcher</span>
+                                <span class="cv-entry-date">Jul 2022 — May 2023</span>
+                            </div>
+                            <div class="cv-entry-org">Guide: Dr. Rakesh Kumar Sharma &middot; IIT Jodhpur</div>
+                            <div class="cv-entry-note">Designed and synthesised chiral organocatalysts for asymmetric
+                                synthesis.</div>
+                        </div>
                     </div>
                 </div>
-                <div class="award-card">
-                    <div class="award-icon"><i class="fas fa-award"></i></div>
-                    <div class="award-content">
-                        <h4>Young Researcher Award</h4>
-                        <p class="year">E-MRS 2025 Fall Meeting</p>
-                        <p>European Materials Research Society Fall Meeting, Warsaw.</p>
+
+                <!-- Technical Skills -->
+                <div class="card border-0 shadow-sm bg-white mb-3">
+                    <div class="card-body p-4">
+                        <div class="cv-eyebrow">Technical Skills</div>
+
+                        <div class="cv-skill-row">
+                            <div class="cv-skill-label">First principles</div>
+                            <div class="cv-skill-values">DFT · TDDFT · GW/BSE · Ab-initio MD · Non-Adiabatic MD ·
+                                Phonon calculations</div>
+                        </div>
+                        <div class="cv-skill-row">
+                            <div class="cv-skill-label">Codes</div>
+                            <div class="cv-skill-values">VASP · Quantum ESPRESSO · Gaussian · LAMMPS</div>
+                        </div>
+                        <div class="cv-skill-row">
+                            <div class="cv-skill-label">Machine learning</div>
+                            <div class="cv-skill-values">Machine-learning force fields (MLFF / MLIP) · graph neural
+                                networks (GNN) · neural network potentials · Random Forest · XGBoost · SVM · ANN ·
+                                active learning · SHAP · feature engineering</div>
+                        </div>
+                        <div class="cv-skill-row">
+                            <div class="cv-skill-label">Informatics</div>
+                            <div class="cv-skill-values">pymatgen · ASE · Materials Project API · high-throughput
+                                screening</div>
+                        </div>
+                        <div class="cv-skill-row">
+                            <div class="cv-skill-label">Programming</div>
+                            <div class="cv-skill-values">Python · Bash · MATLAB · Git · Linux / HPC</div>
+                        </div>
                     </div>
                 </div>
-                <div class="award-card">
-                    <div class="award-icon"><i class="fas fa-medal"></i></div>
-                    <div class="award-content">
-                        <h4>Silver Award – Abstract Writing Competition</h4>
-                        <p class="year">In-house Symposium, IIT Delhi 2025</p>
-                        <p>Department of Chemistry annual symposium.</p>
+
+                <!-- Honors & Awards -->
+                <div class="card border-0 shadow-sm bg-white mb-3">
+                    <div class="card-body p-4">
+                        <div class="cv-eyebrow">Honors &amp; Awards</div>
+
+                        <div class="cv-entry">
+                            <div class="cv-entry-head">
+                                <span class="cv-entry-title">Kawazoe Best Poster Award</span>
+                                <span class="cv-entry-date">2026</span>
+                            </div>
+                            <div class="cv-entry-org">4th International Conference on Materials Genome (ICMG-IV)</div>
+                        </div>
+
+                        <div class="cv-entry">
+                            <div class="cv-entry-head">
+                                <span class="cv-entry-title">Young Researcher Award</span>
+                                <span class="cv-entry-date">2025</span>
+                            </div>
+                            <div class="cv-entry-org">E-MRS Fall Meeting, Warsaw</div>
+                        </div>
+
+                        <div class="cv-entry">
+                            <div class="cv-entry-head">
+                                <span class="cv-entry-title">Silver Award, Abstract Writing Competition</span>
+                                <span class="cv-entry-date">2024</span>
+                            </div>
+                            <div class="cv-entry-org">In-house Symposium, Dept. of Chemistry, IIT Delhi</div>
+                        </div>
+
+                        <div class="cv-entry">
+                            <div class="cv-entry-head">
+                                <span class="cv-entry-title">Best Poster Award</span>
+                                <span class="cv-entry-date">2023</span>
+                            </div>
+                            <div class="cv-entry-org">In-house Symposium, Dept. of Chemistry, IIT Delhi</div>
+                        </div>
                     </div>
                 </div>
-                <div class="award-card">
-                    <div class="award-icon"><i class="fas fa-star"></i></div>
-                    <div class="award-content">
-                        <h4>Best Poster Award</h4>
-                        <p class="year">In-house Symposium, Department of Chemistry, IIT Delhi</p>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="footer-links">
-            <a href="https://scholar.google.com/citations?user=HzuwXBMAAAAJ&hl=en" target="_blank"><i class="fas fa-graduation-cap"></i></a>
-            <a href="https://github.com/nikyadav002" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/nikhilsingh002" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://orcid.org/0009-0007-4990-8748" target="_blank"><i class="fab fa-orcid"></i></a>
-            <a href="https://x.com/nikyadav002" target="_blank"><i class="fab fa-x-twitter"></i></a>
+    <footer class="footer border-top py-2 mt-5 bg-white small">
+        <div class="container-lg">
+            <div class="row my-3">
+                <div class="col-6">
+                    <div class="text-muted"><i>Last updated: Jul 2026</i></div>
+                </div>
+                <div class="col-6">
+                    <div class="text-right text-muted">&copy; 2026 Nikhil Singh</div>
+                </div>
+            </div>
         </div>
-        <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 Nikhil Singh</p>
     </footer>
 
-    <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ once: true, offset: 50 });
-
-        const toggleBtn = document.getElementById('theme-toggle');
-        const icon = toggleBtn.querySelector('i');
-        let isDark = localStorage.getItem('theme') === 'dark';
-        function updateTheme() {
-            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-            icon.className = isDark ? 'fas fa-moon' : 'fas fa-sun';
-            const color = isDark ? '#ffffff' : '#2563eb';
-            if (window.pJSDom && window.pJSDom[0]) {
-                window.pJSDom[0].pJS.particles.color.value = color;
-                window.pJSDom[0].pJS.particles.line_linked.color = color;
-                window.pJSDom[0].pJS.fn.particlesRefresh();
-            }
-        }
-        toggleBtn.addEventListener('click', () => { isDark = !isDark; localStorage.setItem('theme', isDark ? 'dark' : 'light'); updateTheme(); });
-        updateTheme();
-
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); navLinks.classList.toggle('active'); });
-        navLinks.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { hamburger.classList.remove('active'); navLinks.classList.remove('active'); }); });
-
-        window.addEventListener('load', () => document.getElementById('pageLoader').classList.add('hidden'));
-        window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50));
-        const scrollTopBtn = document.getElementById('scrollTop');
-        window.addEventListener('scroll', () => scrollTopBtn.classList.toggle('visible', window.scrollY > 400));
-        scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    </script>
-    <script src="./assets/js/crystal-bg.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <script src="./assets/js/site.js"></script>
 </body>
 
 </html>
