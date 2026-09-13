@@ -428,3 +428,28 @@ a:hover {
     opacity: 1;
     pointer-events: auto;
 }
+
+/* Artwork / Illustration section ----------------------- */
+.artwork-viewer {
+    position: relative;
+    background: #0a0a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 0.8rem;
+}
+
+.artwork-viewer img {
+    max-height: 650px;
+    width: auto;
+    max-width: 100%;
+    transition: transform 0.35s ease;
+}
+
+.artwork-viewer:hover img {
+    transform: scale(1.018);
+}
+
+

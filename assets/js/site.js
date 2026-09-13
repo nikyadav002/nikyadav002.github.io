@@ -10,18 +10,27 @@
         });
     }
 
-    // Lightbox for gallery pages.
+    // Lightbox for gallery and artwork pages.
     var lightbox = document.getElementById('lightbox');
     if (lightbox) {
         var lightboxImg = document.getElementById('lightboxImg');
-        document.querySelectorAll('.gallery-item img').forEach(function (img) {
-            img.addEventListener('click', function () {
-                lightboxImg.src = img.src;
+        document.querySelectorAll('.gallery-item img, .lightbox-trigger').forEach(function (img) {
+            img.addEventListener('click', function (e) {
+                e.stopPropagation();
+                lightboxImg.src = img.getAttribute('data-full') || img.src;
                 lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
             });
         });
         lightbox.addEventListener('click', function () {
             lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
         });
     }
 })();
